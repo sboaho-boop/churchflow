@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify } from "jose";
+import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 import type { Role } from "@/generated/prisma/enums";
 
 const SESSION_COOKIE = "cf_session";
@@ -18,14 +18,6 @@ export interface SessionUser {
   memberId: string | null;
 }
 
-interface TokenPayload {
-  churchId: string | null;
-  role: Role;
-  name: string;
-  email: string;
-  memberId: string | null;
-}
-
 export async function createSessionToken(user: {
   id: string;
   churchId: string | null;
@@ -34,7 +26,7 @@ export async function createSessionToken(user: {
   email: string;
   memberId: string | null;
 }): Promise<string> {
-  const payload: TokenPayload = {
+  const payload: JWTPayload = {
     churchId: user.churchId,
     role: user.role,
     name: user.name,

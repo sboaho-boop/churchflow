@@ -1,11 +1,13 @@
 import { headers } from "next/headers";
 import type { Church, User } from "@/generated/prisma/client";
 import { prisma } from "./prisma";
-import { getSession, type SessionUser } from "./session";
+import { getSession } from "./session";
+import type { SessionUser } from "./auth";
 
 export interface ChurchContext {
   session: SessionUser;
-  churchId: string | null;
+  /** Set whenever the session resolves to a church (null for an unscoped super admin). */
+  churchId: string;
   church: Church | null;
   isSuperAdmin: boolean;
 }
@@ -38,7 +40,7 @@ export async function getChurchContext(): Promise<ChurchContext | null> {
 
   return {
     session,
-    churchId,
+    churchId: churchId as string,
     church,
     isSuperAdmin: session.role === "SUPER_ADMIN",
   };
