@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: churchflow-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: churchflow
+      POSTGRES_PASSWORD: churchflow
+      POSTGRES_DB: churchflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - churchflow_pgdata:/var/lib/postgresql/data
+
+volumes:
+  churchflow_pgdata:

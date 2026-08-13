@@ -1,0 +1,874 @@
+// ChurchFlow — multi-tenant church management platform
+// Every tenant-owned model is scoped by `churchId`. Queries MUST filter by
+// churchId so a church can only ever read/write its own data.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum Role {
+  SUPER_ADMIN // Platform owner (no churchId)
+  CHURCH_ADMIN // Church administrator / secretary
+  PASTOR
+  DEPARTMENT_LEADER // Scoped to a single department
+  MEMBER
+}
+
+enum ChurchPlan {
+  FREE
+  BASIC
+  STANDARD
+  PREMIUM
+}
+
+enum ChurchStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  TRIAL
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+}
+
+enum BloodGroup {
+  A_POS
+  A_NEG
+  B_POS
+  B_NEG
+  AB_POS
+  AB_NEG
+  O_POS
+  O_NEG
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  TRANSFERRED
+  DECEASED
+  ATTENDEE
+}
+
+enum MembershipClass {
+  NONE
+  NEW_CONVERT
+  CANDIDATE
+  FULL_MEMBER
+}
+
+enum AttendanceType {
+  SUNDAY
+  MIDWEEK
+  PRAYER_MEETING
+  BIBLE_STUDY
+  YOUTH_MEETING
+  CHOIR_PRACTICE
+  DEPARTMENT_MEETING
+  OTHER
+}
+
+enum AttendanceMethod {
+  QR_CODE
+  NFC
+  BARCODE
+  MANUAL
+  MOBILE_APP
+  FACE_RECOGNITION
+}
+
+enum FinanceType {
+  INCOME
+  EXPENSE
+}
+
+enum PaymentMethod {
+  CASH
+  MOBILE_MONEY
+  BANK
+  CARD
+}
+
+enum EventType {
+  CONFERENCE
+  WEDDING
+  FUNERAL
+  RETREAT
+  CRUSADE
+  CONVENTION
+  CAMP
+  BAPTISM
+  COMMUNION
+  SEMINAR
+  OTHER
+}
+
+enum FollowUpType {
+  FIRST_VISIT
+  PHONE_CALL
+  HOME_VISIT
+  COUNSELING
+  MEMBERSHIP_CLASS
+  BAPTISM
+  DEPARTMENT_INTEGRATION
+  OTHER
+}
+
+enum FollowUpStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum PrayerStatus {
+  PENDING
+  IN_PROGRESS
+  ANSWERED
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum VisitorStatus {
+  NEW
+  FOLLOW_UP
+  CONVERTED
+  INACTIVE
+}
+
+enum CommunicationChannel {
+  SMS
+  EMAIL
+  PUSH
+  WHATSAPP
+}
+
+enum CommunicationStatus {
+  DRAFT
+  SENT
+  FAILED
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum CertificateType {
+  BAPTISM
+  MEMBERSHIP
+  CHILD_DEDICATION
+  MARRIAGE
+  GRADUATION
+}
+
+enum CertificateStatus {
+  DRAFT
+  ISSUED
+}
+
+enum DepartmentRole {
+  LEADER
+  ASSISTANT_LEADER
+  MEMBER
+}
+
+enum GroupRole {
+  LEADER
+  ASSISTANT_LEADER
+  MEMBER
+}
+
+// ---------------------------------------------------------------------------
+// Church (tenant root)
+// ---------------------------------------------------------------------------
+
+model Church {
+  id              String       @id @default(cuid())
+  name            String
+  slug            String       @unique
+  motto           String?
+  description     String?
+  logo            String?
+  address         String?
+  gps             String?
+  phone           String?
+  email           String?
+  website         String?
+  socials         Json?
+  plan            ChurchPlan   @default(FREE)
+  status          ChurchStatus @default(PENDING)
+  planExpiresAt   DateTime?
+  memberLimit     Int          @default(100)
+  currency        String       @default("GHS")
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  users                  User[]
+  members                Member[]
+  families               Family[]
+  departments            Department[]
+  attendances            Attendance[]
+  financeCategories      FinanceCategory[]
+  financeTransactions    FinanceTransaction[]
+  events                 Event[]
+  eventRegistrations     EventRegistration[]
+  smallGroups            SmallGroup[]
+  visitors               Visitor[]
+  followUps              FollowUp[]
+  prayerRequests         PrayerRequest[]
+  counselingAppointments CounselingAppointment[]
+  sermons                Sermon[]
+  communications         Communication[]
+  assets                 Asset[]
+  inventoryItems         InventoryItem[]
+  staffMembers           StaffMember[]
+  certificates           Certificate[]
+  announcements          Announcement[]
+  supportTickets         SupportTicket[]
+  auditLogs              AuditLog[]
+  notifications          Notification[]
+  serviceTypes           ServiceType[]
+  memberDocuments        MemberDocument[]
+  familyMembers          FamilyMember[]
+  departmentMembers      DepartmentMember[]
+  groupMembers           GroupMember[]
+
+  @@index([status])
+  @@index([plan])
+}
+
+// ---------------------------------------------------------------------------
+// Users & roles
+// ---------------------------------------------------------------------------
+
+model User {
+  id           String    @id @default(cuid())
+  churchId     String?
+  church       Church?   @relation(fields: [churchId], references: [id])
+  memberId     String?   @unique
+  member       Member?   @relation(fields: [memberId], references: [id])
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(MEMBER)
+  phone        String?
+  active       Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  departmentsLed       Department[]
+  groupsLed            SmallGroup[]
+  attendancesRecorded  Attendance[]        @relation("RecordedBy")
+  transactionsRecorded FinanceTransaction[] @relation("RecordedBy")
+  followUpsAssigned    FollowUp[]          @relation("AssignedTo")
+  prayerAnswered       PrayerRequest[]     @relation("AnsweredBy")
+  appointmentsPastor   CounselingAppointment[] @relation("Pastor")
+  sermonsPreached      Sermon[]
+  auditLogs            AuditLog[]
+  visitorsAssigned     Visitor[]           @relation("AssignedTo")
+
+  @@index([churchId])
+  @@index([role])
+}
+
+// ---------------------------------------------------------------------------
+// Membership
+// ---------------------------------------------------------------------------
+
+model Member {
+  id               String           @id @default(cuid())
+  churchId         String
+  church           Church           @relation(fields: [churchId], references: [id])
+  memberId         String
+  photo            String?
+  firstName        String
+  lastName         String
+  otherNames       String?
+  gender           Gender
+  dob              DateTime?
+  occupation       String?
+  phone            String?
+  email            String?
+  address          String?
+  emergencyContact String?
+  emergencyPhone   String?
+  maritalStatus    MaritalStatus    @default(SINGLE)
+  anniversaryDate  DateTime?
+  bloodGroup       BloodGroup?
+  baptismDate      DateTime?
+  confirmationDate DateTime?
+  membershipClass  MembershipClass  @default(NONE)
+  dateJoined       DateTime?
+  previousChurch   String?
+  familyId         String?
+  family           Family?          @relation("FamilyPrimary", fields: [familyId], references: [id])
+  status           MemberStatus     @default(ACTIVE)
+  notes            String?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  user                User?
+  familyMemberships   FamilyMember[]
+  headOfFamilies      Family[]        @relation("FamilyHead")
+  departmentMembers   DepartmentMember[]
+  groupMembers        GroupMember[]
+  attendances         Attendance[]
+  transactions        FinanceTransaction[]
+  eventRegistrations  EventRegistration[]
+  visitor             Visitor?
+  followUps           FollowUp[]
+  prayerRequests      PrayerRequest[]
+  counselingAppointments CounselingAppointment[]
+  certificates        Certificate[]
+  memberDocuments     MemberDocument[]
+  staffMemberships    StaffMember[]
+
+  @@unique([churchId, memberId])
+  @@index([churchId, firstName, lastName])
+  @@index([churchId, dob])
+  @@index([churchId, gender])
+}
+
+// ---------------------------------------------------------------------------
+// Families
+// ---------------------------------------------------------------------------
+
+model Family {
+  id       String   @id @default(cuid())
+  churchId String
+  church   Church   @relation(fields: [churchId], references: [id])
+  name     String
+  address  String?
+  headId   String?
+  head     Member?  @relation("FamilyHead", fields: [headId], references: [id])
+  createdAt DateTime @default(now())
+
+  members        FamilyMember[]
+  primaryMembers Member[] @relation("FamilyPrimary")
+
+  @@index([churchId])
+}
+
+model FamilyMember {
+  id       String       @id @default(cuid())
+  churchId String
+  church   Church       @relation(fields: [churchId], references: [id])
+  familyId String
+  family   Family       @relation(fields: [familyId], references: [id])
+  memberId String
+  member   Member       @relation(fields: [memberId], references: [id])
+  role     String       @default("CHILD") // HEAD, SPOUSE, CHILD, RELATIVE
+  createdAt DateTime    @default(now())
+
+  @@unique([familyId, memberId])
+  @@index([churchId])
+}
+
+// ---------------------------------------------------------------------------
+// Departments
+// ---------------------------------------------------------------------------
+
+model Department {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  name        String
+  description String?
+  leaderId    String?
+  leader      User?    @relation(fields: [leaderId], references: [id])
+  meetingDay  String?
+  meetingTime String?
+  createdAt   DateTime @default(now())
+
+  members DepartmentMember[]
+  staff   StaffMember[]
+  groups  SmallGroup[]
+
+  @@index([churchId])
+}
+
+model DepartmentMember {
+  id           String         @id @default(cuid())
+  churchId     String
+  church       Church         @relation(fields: [churchId], references: [id])
+  departmentId String
+  department   Department     @relation(fields: [departmentId], references: [id])
+  memberId     String
+  member       Member         @relation(fields: [memberId], references: [id])
+  role         DepartmentRole @default(MEMBER)
+  joinedAt     DateTime       @default(now())
+
+  @@unique([departmentId, memberId])
+  @@index([churchId])
+}
+
+// ---------------------------------------------------------------------------
+// Attendance
+// ---------------------------------------------------------------------------
+
+model ServiceType {
+  id        String   @id @default(cuid())
+  churchId  String
+  church    Church   @relation(fields: [churchId], references: [id])
+  name      String
+  createdAt DateTime @default(now())
+
+  attendances Attendance[]
+
+  @@index([churchId])
+}
+
+model Attendance {
+  id            String           @id @default(cuid())
+  churchId      String
+  church        Church           @relation(fields: [churchId], references: [id])
+  memberId      String?
+  member        Member?          @relation(fields: [memberId], references: [id])
+  serviceTypeId String?
+  serviceType   ServiceType?     @relation(fields: [serviceTypeId], references: [id])
+  type          AttendanceType   @default(SUNDAY)
+  date          DateTime         @default(now())
+  method        AttendanceMethod @default(MANUAL)
+  recordedById  String?
+  recordedBy    User?            @relation("RecordedBy", fields: [recordedById], references: [id])
+
+  @@index([churchId, type, date])
+  @@index([churchId, memberId])
+}
+
+// ---------------------------------------------------------------------------
+// Giving & Finance
+// ---------------------------------------------------------------------------
+
+model FinanceCategory {
+  id        String      @id @default(cuid())
+  churchId  String
+  church    Church      @relation(fields: [churchId], references: [id])
+  name      String
+  type      FinanceType @default(INCOME)
+  createdAt DateTime    @default(now())
+
+  transactions FinanceTransaction[]
+
+  @@unique([churchId, name])
+  @@index([churchId, type])
+}
+
+model FinanceTransaction {
+  id           String       @id @default(cuid())
+  churchId     String
+  church       Church       @relation(fields: [churchId], references: [id])
+  categoryId   String
+  category     FinanceCategory @relation(fields: [categoryId], references: [id])
+  memberId     String?
+  member       Member?      @relation(fields: [memberId], references: [id])
+  amount       Decimal      @db.Decimal(12, 2)
+  type         FinanceType  @default(INCOME)
+  method       PaymentMethod @default(CASH)
+  date         DateTime     @default(now())
+  reference    String?
+  notes        String?
+  recordedById String?
+  recordedBy   User?        @relation("RecordedBy", fields: [recordedById], references: [id])
+  createdAt    DateTime     @default(now())
+
+  @@index([churchId, date])
+  @@index([churchId, categoryId])
+  @@index([churchId, memberId])
+}
+
+// ---------------------------------------------------------------------------
+// Events
+// ---------------------------------------------------------------------------
+
+model Event {
+  id             String    @id @default(cuid())
+  churchId       String
+  church         Church    @relation(fields: [churchId], references: [id])
+  name           String
+  type           EventType @default(CONFERENCE)
+  description    String?
+  startDate      DateTime
+  endDate        DateTime?
+  location       String?
+  registrationEnabled Boolean @default(true)
+  fee            Decimal?  @db.Decimal(12, 2)
+  createdAt      DateTime  @default(now())
+
+  registrations EventRegistration[]
+
+  @@index([churchId, startDate])
+}
+
+model EventRegistration {
+  id        String   @id @default(cuid())
+  churchId  String
+  church    Church   @relation(fields: [churchId], references: [id])
+  eventId   String
+  event     Event    @relation(fields: [eventId], references: [id])
+  memberId  String?
+  member    Member?  @relation(fields: [memberId], references: [id])
+  name      String
+  phone     String?
+  qrCode    String?
+  checkedIn Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@unique([eventId, memberId])
+  @@index([churchId])
+}
+
+// ---------------------------------------------------------------------------
+// Small groups / cells
+// ---------------------------------------------------------------------------
+
+model SmallGroup {
+  id            String   @id @default(cuid())
+  churchId      String
+  church        Church   @relation(fields: [churchId], references: [id])
+  departmentId  String?
+  department    Department? @relation(fields: [departmentId], references: [id])
+  name          String
+  leaderId      String?
+  leader        User?    @relation(fields: [leaderId], references: [id])
+  meetingLocation String?
+  meetingDay    String?
+  meetingTime   String?
+  createdAt     DateTime @default(now())
+
+  members GroupMember[]
+
+  @@index([churchId])
+}
+
+model GroupMember {
+  id        String    @id @default(cuid())
+  churchId  String
+  church    Church    @relation(fields: [churchId], references: [id])
+  groupId   String
+  group     SmallGroup @relation(fields: [groupId], references: [id])
+  memberId  String
+  member    Member    @relation(fields: [memberId], references: [id])
+  role      GroupRole @default(MEMBER)
+  joinedAt  DateTime  @default(now())
+
+  @@unique([groupId, memberId])
+  @@index([churchId])
+}
+
+// ---------------------------------------------------------------------------
+// Visitors & follow-up
+// ---------------------------------------------------------------------------
+
+model Visitor {
+  id            String        @id @default(cuid())
+  churchId      String
+  church        Church        @relation(fields: [churchId], references: [id])
+  memberId      String?       @unique
+  member        Member?       @relation(fields: [memberId], references: [id])
+  name          String
+  phone         String?
+  address       String?
+  invitedBy     String?
+  visitedDate   DateTime      @default(now())
+  assignedToId  String?
+  assignedTo    User?         @relation("AssignedTo", fields: [assignedToId], references: [id])
+  status        VisitorStatus @default(NEW)
+  notes         String?
+  createdAt     DateTime      @default(now())
+
+  followUps FollowUp[]
+
+  @@index([churchId, status])
+}
+
+model FollowUp {
+  id          String         @id @default(cuid())
+  churchId    String
+  church      Church         @relation(fields: [churchId], references: [id])
+  visitorId   String?
+  visitor     Visitor?       @relation(fields: [visitorId], references: [id])
+  memberId    String?
+  member      Member?        @relation(fields: [memberId], references: [id])
+  type        FollowUpType   @default(FIRST_VISIT)
+  date        DateTime       @default(now())
+  status      FollowUpStatus @default(PENDING)
+  notes       String?
+  assignedToId String?
+  assignedTo  User?          @relation("AssignedTo", fields: [assignedToId], references: [id])
+  createdAt   DateTime       @default(now())
+
+  @@index([churchId, status])
+}
+
+// ---------------------------------------------------------------------------
+// Prayer requests
+// ---------------------------------------------------------------------------
+
+model PrayerRequest {
+  id          String       @id @default(cuid())
+  churchId    String
+  church      Church       @relation(fields: [churchId], references: [id])
+  memberId    String?
+  member      Member?      @relation(fields: [memberId], references: [id])
+  name        String
+  request     String
+  status      PrayerStatus @default(PENDING)
+  answeredAt  DateTime?
+  answeredById String?
+  answeredBy  User?        @relation("AnsweredBy", fields: [answeredById], references: [id])
+  pastorNote  String?
+  createdAt   DateTime     @default(now())
+
+  @@index([churchId, status])
+}
+
+// ---------------------------------------------------------------------------
+// Counseling
+// ---------------------------------------------------------------------------
+
+model CounselingAppointment {
+  id         String            @id @default(cuid())
+  churchId   String
+  church     Church            @relation(fields: [churchId], references: [id])
+  memberId   String?
+  member     Member?           @relation(fields: [memberId], references: [id])
+  pastorId   String
+  pastor     User              @relation("Pastor", fields: [pastorId], references: [id])
+  date       DateTime
+  notes      String?
+  status     AppointmentStatus @default(SCHEDULED)
+  createdAt  DateTime          @default(now())
+
+  @@index([churchId, date])
+}
+
+// ---------------------------------------------------------------------------
+// Sermons
+// ---------------------------------------------------------------------------
+
+model Sermon {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  title       String
+  topic       String?
+  series      String?
+  date        DateTime @default(now())
+  audioUrl    String?
+  videoUrl    String?
+  pdfUrl      String?
+  notes       String?
+  preacherId  String?
+  preacher    User?    @relation(fields: [preacherId], references: [id])
+  createdAt   DateTime @default(now())
+
+  @@index([churchId, date])
+  @@index([churchId, topic])
+}
+
+// ---------------------------------------------------------------------------
+// Communication
+// ---------------------------------------------------------------------------
+
+model Communication {
+  id          String                @id @default(cuid())
+  churchId    String
+  church      Church                @relation(fields: [churchId], references: [id])
+  subject     String
+  message     String
+  channel     CommunicationChannel  @default(EMAIL)
+  audience    Json? // { departments?: [], genders?: [], members?: [], visitors?: boolean, workers?: boolean }
+  status      CommunicationStatus   @default(DRAFT)
+  sentAt      DateTime?
+  createdById String?
+  createdAt   DateTime              @default(now())
+
+  @@index([churchId, status])
+}
+
+// ---------------------------------------------------------------------------
+// Assets & inventory
+// ---------------------------------------------------------------------------
+
+model Asset {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  name        String
+  category    String
+  condition   String   @default("GOOD")
+  location    String?
+  serial      String?
+  value       Decimal? @db.Decimal(12, 2)
+  createdAt   DateTime @default(now())
+
+  @@index([churchId, category])
+}
+
+model InventoryItem {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  name        String
+  category    String
+  quantity    Int      @default(0)
+  minStock    Int      @default(0)
+  unit        String   @default("pcs")
+  createdAt   DateTime @default(now())
+
+  @@index([churchId, category])
+}
+
+// ---------------------------------------------------------------------------
+// HR / staff
+// ---------------------------------------------------------------------------
+
+model StaffMember {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  memberId    String?
+  member      Member?  @relation(fields: [memberId], references: [id])
+  departmentId String?
+  department  Department? @relation(fields: [departmentId], references: [id])
+  position    String
+  employmentType String @default("FULL_TIME")
+  salary      Decimal? @db.Decimal(12, 2)
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+
+  @@index([churchId])
+}
+
+// ---------------------------------------------------------------------------
+// Certificates
+// ---------------------------------------------------------------------------
+
+model Certificate {
+  id                String            @id @default(cuid())
+  churchId          String
+  church            Church            @relation(fields: [churchId], references: [id])
+  memberId          String
+  member            Member            @relation(fields: [memberId], references: [id])
+  type              CertificateType
+  certificateNumber String            @unique
+  issuedDate        DateTime          @default(now())
+  status            CertificateStatus @default(ISSUED)
+  createdAt         DateTime          @default(now())
+
+  @@index([churchId, type])
+}
+
+// ---------------------------------------------------------------------------
+// Announcements & notifications
+// ---------------------------------------------------------------------------
+
+model Announcement {
+  id          String   @id @default(cuid())
+  churchId    String
+  church      Church   @relation(fields: [churchId], references: [id])
+  title       String
+  message     String
+  createdAt   DateTime @default(now())
+
+  @@index([churchId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  churchId  String
+  church    Church   @relation(fields: [churchId], references: [id])
+  userId    String
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([churchId, userId, read])
+}
+
+// ---------------------------------------------------------------------------
+// Support & audit
+// ---------------------------------------------------------------------------
+
+model SupportTicket {
+  id          String         @id @default(cuid())
+  churchId    String
+  church      Church         @relation(fields: [churchId], references: [id])
+  subject     String
+  message     String
+  status      TicketStatus   @default(OPEN)
+  priority    TicketPriority @default(MEDIUM)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([churchId, status])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  churchId  String?
+  church    Church?  @relation(fields: [churchId], references: [id])
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([churchId, action])
+}
+
+// ---------------------------------------------------------------------------
+// Member documents
+// ---------------------------------------------------------------------------
+
+model MemberDocument {
+  id        String   @id @default(cuid())
+  churchId  String
+  church    Church   @relation(fields: [churchId], references: [id])
+  memberId  String
+  member    Member   @relation(fields: [memberId], references: [id])
+  name      String
+  url       String
+  type      String?
+  createdAt DateTime @default(now())
+
+  @@index([churchId, memberId])
+}
