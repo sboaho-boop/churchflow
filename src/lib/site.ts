@@ -11,14 +11,14 @@ export const site = {
   name: "ChurchFlow",
   productTagline: "Church management, made simple.",
   productDescription:
-    "One multi-tenant platform for membership, attendance, giving, events and teams.",
+    "One powerful platform for membership, attendance, giving, events and teams.",
   products: [
     {
       name: "ChurchFlow",
       tagline: "Church management platform",
       description:
-        "Members, attendance, giving, events, groups and more — for one church or a hundred.",
-      features: ["Multi-tenant", "Giving & finance", "Attendance"],
+        "Members, attendance, giving, events, groups and more — all in one place.",
+      features: ["Giving & finance", "Attendance", "Online services"],
       href: "/login",
       accent: "emerald",
     },

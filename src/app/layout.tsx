@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · ChurchFlow",
   },
   description:
-    "Multi-tenant church management platform for membership, attendance, giving and more.",
+    "Church management platform for membership, attendance, giving and more.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

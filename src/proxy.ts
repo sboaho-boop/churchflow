@@ -28,7 +28,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  // Multi-tenant subdomain hint: slug.churchflow.app -> x-church-slug
+  // Add church slug header if present
   const hostname = (request.headers.get("host") ?? "").split(":")[0];
   const parts = hostname.split(".");
   const response = NextResponse.next();

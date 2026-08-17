@@ -57,7 +57,7 @@ export function RegisterForm() {
           onChange={(e) => update("churchName", e.target.value)}
         />
       </Field>
-      <Field label="Church address (slug)" htmlFor="churchSlug">
+      <Field label="Church ID" htmlFor="churchSlug">
         <Input
           id="churchSlug"
           required
@@ -70,7 +70,7 @@ export function RegisterForm() {
           }
         />
         <p className="mt-1 text-xs text-slate-500">
-          Your church gets a unique web address: yourslug.churchflow.app
+          A unique identifier for your church (lowercase, no spaces)
         </p>
       </Field>
       <Field label="Your name" htmlFor="adminName">
