@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { PWARegister } from "@/components/pwa-register";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,6 +22,20 @@ export const metadata: Metadata = {
     "Church management platform for membership, attendance, giving and more.",
   icons: {
     icon: "/icon.svg",
+    apple: "/icon-192.png",
+  },
+  manifest: "/manifest.json",
+  themeColor: "#3B82F6",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "ChurchFlow",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
   },
 };
 
@@ -30,7 +45,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <PWARegister />
+        {children}
+      </body>
     </html>
   );
 }
