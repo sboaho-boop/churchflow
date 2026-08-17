@@ -33,6 +33,64 @@ function accentFor(name: string) {
   return accentStyles[name] ?? accentStyles.emerald;
 }
 
+const testimonials = [
+  {
+    quote: "ChurchFlow transformed how we manage our 2,000-member congregation. The attendance tracking alone saved us hours every week.",
+    name: "Pastor Michael Chen",
+    role: "Senior Pastor, Grace Community Church",
+    avatar: "MC",
+  },
+  {
+    quote: "The finance module gave us complete transparency. Our board loves the real-time giving reports.",
+    name: "Sarah Williams",
+    role: "Church Administrator, Living Water Fellowship",
+    avatar: "SW",
+  },
+  {
+    quote: "We went from scattered spreadsheets to a unified system in just two weeks. The follow-up workflows ensure no visitor falls through the cracks.",
+    name: "David Thompson",
+    role: "Operations Director, New Hope Church",
+    avatar: "DT",
+  },
+];
+
+const stats = [
+  { value: "500+", label: "Churches Served" },
+  { value: "150K+", label: "Members Managed" },
+  { value: "99.9%", label: "Uptime" },
+  { value: "24/7", label: "Support" },
+];
+
+const pricingPlans = [
+  {
+    name: "Starter",
+    price: "Free",
+    period: "forever",
+    description: "Perfect for small churches getting started",
+    features: ["Up to 100 members", "Basic attendance", "Giving tracking", "Email support"],
+    cta: "Get Started Free",
+    highlighted: false,
+  },
+  {
+    name: "Growth",
+    price: "$29",
+    period: "/month",
+    description: "For growing congregations that need more",
+    features: ["Up to 500 members", "Advanced analytics", "Event management", "Priority support", "Custom branding"],
+    cta: "Start Free Trial",
+    highlighted: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "",
+    description: "For multi-campus churches and networks",
+    features: ["Unlimited members", "Multi-campus support", "API access", "Dedicated support", "Custom integrations"],
+    cta: "Contact Sales",
+    highlighted: false,
+  },
+];
+
 export default function LandingPage() {
   const featured = site.products[0];
 
@@ -52,6 +110,12 @@ export default function LandingPage() {
             </a>
             <a href="#systems" className="hover:text-slate-900">
               Our systems
+            </a>
+            <a href="#testimonials" className="hover:text-slate-900">
+              Testimonials
+            </a>
+            <a href="#pricing" className="hover:text-slate-900">
+              Pricing
             </a>
           </nav>
           <Link
@@ -93,6 +157,19 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section className="border-t border-slate-200 bg-slate-50 py-12">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-3xl font-bold text-emerald-600">{stat.value}</div>
+                  <div className="mt-1 text-sm text-slate-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="features" className="border-t border-slate-200 bg-white py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -115,6 +192,43 @@ export default function LandingPage() {
                 >
                   <h3 className="text-sm font-semibold text-slate-900">{f.title}</h3>
                   <p className="mt-2 text-sm text-slate-600">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="border-t border-slate-200 bg-slate-50 py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+              Trusted by churches everywhere
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-center text-slate-600">
+              See what church leaders are saying about ChurchFlow
+            </p>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((t) => (
+                <div
+                  key={t.name}
+                  className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                  <div className="flex gap-1 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-sm text-slate-600">&quot;{t.quote}&quot;</p>
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-slate-900">{t.name}</div>
+                      <div className="text-xs text-slate-500">{t.role}</div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -170,6 +284,88 @@ export default function LandingPage() {
                 </a>
               );
             })}
+          </div>
+        </section>
+
+        <section id="pricing" className="border-t border-slate-200 bg-slate-50 py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+              Simple, transparent pricing
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-center text-slate-600">
+              Start free and scale as your church grows
+            </p>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {pricingPlans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={`relative rounded-xl border p-6 ${
+                    plan.highlighted
+                      ? "border-emerald-600 bg-white shadow-lg ring-1 ring-emerald-600/20"
+                      : "border-slate-200 bg-white"
+                  }`}
+                >
+                  {plan.highlighted && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald-600 px-4 py-1 text-xs font-semibold text-white">
+                      Most Popular
+                    </div>
+                  )}
+                  <div className="text-lg font-semibold text-slate-900">{plan.name}</div>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
+                    {plan.period && (
+                      <span className="text-sm text-slate-500">{plan.period}</span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600">{plan.description}</p>
+                  <ul className="mt-6 space-y-3">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-slate-600">
+                        <svg className="h-4 w-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/login"
+                    className={`mt-8 block w-full rounded-lg py-2.5 text-center text-sm font-medium ${
+                      plan.highlighted
+                        ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                        : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-slate-200 bg-emerald-600 py-16">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+              Ready to transform your church management?
+            </h2>
+            <p className="mt-4 text-lg text-emerald-100">
+              Join hundreds of churches already using ChurchFlow to serve their communities better.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/register"
+                className="rounded-lg bg-white px-6 py-3 text-sm font-medium text-emerald-600 shadow-sm hover:bg-emerald-50"
+              >
+                Start Free Today
+              </Link>
+              <Link
+                href="/login"
+                className="rounded-lg border border-emerald-400 bg-transparent px-6 py-3 text-sm font-medium text-white hover:bg-emerald-700"
+              >
+                Sign In to Dashboard
+              </Link>
+            </div>
           </div>
         </section>
       </main>
