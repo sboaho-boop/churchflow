@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   },
   description:
     "Church management platform for membership, attendance, giving and more.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
