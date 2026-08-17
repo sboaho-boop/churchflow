@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { Logo } from "@/components/logo";
 
 const testimonials = [
   {
@@ -88,12 +89,7 @@ export default function LandingPage() {
     <div className="flex-1">
       <header className="sticky top-0 z-40 border-b border-white/20 bg-white/70 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-sm font-bold text-white shadow-lg shadow-emerald-500/30">
-              {site.name.slice(0, 1)}
-            </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">{site.name}</span>
-          </div>
+          <Logo size="md" />
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 sm:flex">
             <a href="#features" className="transition-colors hover:text-emerald-600">
               Features
@@ -341,9 +337,7 @@ export default function LandingPage() {
       <footer className="border-t border-slate-200 bg-white py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-slate-500 sm:flex-row sm:px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 text-[10px] font-bold text-white">
-              {site.name.slice(0, 1)}
-            </div>
+            <Logo size="sm" showText={false} />
             <span className="font-semibold text-slate-700">© {new Date().getFullYear()} {site.name}</span>
           </div>
           <div className="flex gap-6">

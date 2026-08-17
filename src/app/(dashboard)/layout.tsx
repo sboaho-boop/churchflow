@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getChurchContext } from "@/lib/tenant";
 import { requireUser } from "@/lib/session";
 import { can, ROLE_LABELS } from "@/lib/rbac";
+import { Logo } from "@/components/logo";
 import { Sidebar, type NavItem } from "@/components/sidebar";
 
 export default async function DashboardLayout({
