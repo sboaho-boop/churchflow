@@ -61,7 +61,14 @@ export default async function EventsPage() {
               <Table head={["Event", "Type", "Starts", "Location", "Regs", "Fee"]}>
                 {upcoming.map((e) => (
                   <tr key={e.id}>
-                    <td className="px-5 py-3 font-medium text-slate-900">{e.name}</td>
+                    <td className="px-5 py-3 font-medium text-slate-900">
+                      {e.name}
+                      {e.isOnline && (
+                        <span className="ml-2 inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-600/20">
+                          Online
+                        </span>
+                      )}
+                    </td>
                     <td className="px-5 py-3">
                       <Badge color="indigo">{titleCase(e.type)}</Badge>
                     </td>
@@ -83,7 +90,14 @@ export default async function EventsPage() {
               <Table head={["Event", "Type", "Started", "Regs"]}>
                 {past.map((e) => (
                   <tr key={e.id}>
-                    <td className="px-5 py-3 text-slate-900">{e.name}</td>
+                    <td className="px-5 py-3 text-slate-900">
+                      {e.name}
+                      {e.isOnline && (
+                        <span className="ml-2 inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                          Online
+                        </span>
+                      )}
+                    </td>
                     <td className="px-5 py-3">
                       <Badge color="slate">{titleCase(e.type)}</Badge>
                     </td>

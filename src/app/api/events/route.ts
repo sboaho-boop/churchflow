@@ -24,6 +24,10 @@ const eventSchema = z.object({
   location: z.string().optional().nullable(),
   fee: z.coerce.number().optional().nullable(),
   registrationEnabled: z.boolean().optional(),
+  isOnline: z.boolean().optional(),
+  streamUrl: z.string().optional().nullable(),
+  meetingUrl: z.string().optional().nullable(),
+  meetingPlatform: z.string().optional().nullable(),
 });
 
 export async function GET() {
@@ -35,13 +39,13 @@ export async function GET() {
       prisma.event.findMany({
         where: { churchId: ctx.churchId, startDate: { gte: new Date() } },
         orderBy: { startDate: "asc" },
-        include: { _count: { select: { registrations: true } } },
+        include: { _count: { select: { registrations: true, onlineAttendances: true } } },
       }),
       prisma.event.findMany({
         where: { churchId: ctx.churchId, startDate: { lt: new Date() } },
         orderBy: { startDate: "desc" },
         take: 20,
-        include: { _count: { select: { registrations: true } } },
+        include: { _count: { select: { registrations: true, onlineAttendances: true } } },
       }),
     ]);
 
@@ -78,6 +82,10 @@ export async function POST(request: Request) {
         location: d.location || null,
         fee: d.fee ?? null,
         registrationEnabled: d.registrationEnabled ?? true,
+        isOnline: d.isOnline ?? false,
+        streamUrl: d.streamUrl || null,
+        meetingUrl: d.meetingUrl || null,
+        meetingPlatform: d.meetingPlatform || null,
       },
     });
 

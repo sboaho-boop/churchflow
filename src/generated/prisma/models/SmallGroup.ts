@@ -33,6 +33,9 @@ export type SmallGroupMinAggregateOutputType = {
   meetingLocation: string | null
   meetingDay: string | null
   meetingTime: string | null
+  isOnline: boolean | null
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date | null
 }
 
@@ -45,6 +48,9 @@ export type SmallGroupMaxAggregateOutputType = {
   meetingLocation: string | null
   meetingDay: string | null
   meetingTime: string | null
+  isOnline: boolean | null
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date | null
 }
 
@@ -57,6 +63,9 @@ export type SmallGroupCountAggregateOutputType = {
   meetingLocation: number
   meetingDay: number
   meetingTime: number
+  isOnline: number
+  meetingUrl: number
+  meetingPlatform: number
   createdAt: number
   _all: number
 }
@@ -71,6 +80,9 @@ export type SmallGroupMinAggregateInputType = {
   meetingLocation?: true
   meetingDay?: true
   meetingTime?: true
+  isOnline?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
 }
 
@@ -83,6 +95,9 @@ export type SmallGroupMaxAggregateInputType = {
   meetingLocation?: true
   meetingDay?: true
   meetingTime?: true
+  isOnline?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
 }
 
@@ -95,6 +110,9 @@ export type SmallGroupCountAggregateInputType = {
   meetingLocation?: true
   meetingDay?: true
   meetingTime?: true
+  isOnline?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
   _all?: true
 }
@@ -180,6 +198,9 @@ export type SmallGroupGroupByOutputType = {
   meetingLocation: string | null
   meetingDay: string | null
   meetingTime: string | null
+  isOnline: boolean
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date
   _count: SmallGroupCountAggregateOutputType | null
   _min: SmallGroupMinAggregateOutputType | null
@@ -213,6 +234,9 @@ export type SmallGroupWhereInput = {
   meetingLocation?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingDay?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingTime?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  isOnline?: Prisma.BoolFilter<"SmallGroup"> | boolean
+  meetingUrl?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SmallGroup"> | Date | string
   church?: Prisma.XOR<Prisma.ChurchScalarRelationFilter, Prisma.ChurchWhereInput>
   department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
@@ -229,6 +253,9 @@ export type SmallGroupOrderByWithRelationInput = {
   meetingLocation?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingDay?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingTime?: Prisma.SortOrderInput | Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   church?: Prisma.ChurchOrderByWithRelationInput
   department?: Prisma.DepartmentOrderByWithRelationInput
@@ -248,6 +275,9 @@ export type SmallGroupWhereUniqueInput = Prisma.AtLeast<{
   meetingLocation?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingDay?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingTime?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  isOnline?: Prisma.BoolFilter<"SmallGroup"> | boolean
+  meetingUrl?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SmallGroup"> | Date | string
   church?: Prisma.XOR<Prisma.ChurchScalarRelationFilter, Prisma.ChurchWhereInput>
   department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
@@ -264,6 +294,9 @@ export type SmallGroupOrderByWithAggregationInput = {
   meetingLocation?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingDay?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingTime?: Prisma.SortOrderInput | Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.SmallGroupCountOrderByAggregateInput
   _max?: Prisma.SmallGroupMaxOrderByAggregateInput
@@ -282,6 +315,9 @@ export type SmallGroupScalarWhereWithAggregatesInput = {
   meetingLocation?: Prisma.StringNullableWithAggregatesFilter<"SmallGroup"> | string | null
   meetingDay?: Prisma.StringNullableWithAggregatesFilter<"SmallGroup"> | string | null
   meetingTime?: Prisma.StringNullableWithAggregatesFilter<"SmallGroup"> | string | null
+  isOnline?: Prisma.BoolWithAggregatesFilter<"SmallGroup"> | boolean
+  meetingUrl?: Prisma.StringNullableWithAggregatesFilter<"SmallGroup"> | string | null
+  meetingPlatform?: Prisma.StringNullableWithAggregatesFilter<"SmallGroup"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SmallGroup"> | Date | string
 }
 
@@ -291,6 +327,9 @@ export type SmallGroupCreateInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutSmallGroupsInput
   department?: Prisma.DepartmentCreateNestedOneWithoutGroupsInput
@@ -307,6 +346,9 @@ export type SmallGroupUncheckedCreateInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   members?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutGroupInput
 }
@@ -317,6 +359,9 @@ export type SmallGroupUpdateInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutSmallGroupsNestedInput
   department?: Prisma.DepartmentUpdateOneWithoutGroupsNestedInput
@@ -333,6 +378,9 @@ export type SmallGroupUncheckedUpdateInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.GroupMemberUncheckedUpdateManyWithoutGroupNestedInput
 }
@@ -346,6 +394,9 @@ export type SmallGroupCreateManyInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -355,6 +406,9 @@ export type SmallGroupUpdateManyMutationInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -367,6 +421,9 @@ export type SmallGroupUncheckedUpdateManyInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -389,6 +446,9 @@ export type SmallGroupCountOrderByAggregateInput = {
   meetingLocation?: Prisma.SortOrder
   meetingDay?: Prisma.SortOrder
   meetingTime?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -401,6 +461,9 @@ export type SmallGroupMaxOrderByAggregateInput = {
   meetingLocation?: Prisma.SortOrder
   meetingDay?: Prisma.SortOrder
   meetingTime?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -413,6 +476,9 @@ export type SmallGroupMinOrderByAggregateInput = {
   meetingLocation?: Prisma.SortOrder
   meetingDay?: Prisma.SortOrder
   meetingTime?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -567,6 +633,9 @@ export type SmallGroupCreateWithoutChurchInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   department?: Prisma.DepartmentCreateNestedOneWithoutGroupsInput
   leader?: Prisma.UserCreateNestedOneWithoutGroupsLedInput
@@ -581,6 +650,9 @@ export type SmallGroupUncheckedCreateWithoutChurchInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   members?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutGroupInput
 }
@@ -623,6 +695,9 @@ export type SmallGroupScalarWhereInput = {
   meetingLocation?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingDay?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   meetingTime?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  isOnline?: Prisma.BoolFilter<"SmallGroup"> | boolean
+  meetingUrl?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"SmallGroup"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SmallGroup"> | Date | string
 }
 
@@ -632,6 +707,9 @@ export type SmallGroupCreateWithoutLeaderInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutSmallGroupsInput
   department?: Prisma.DepartmentCreateNestedOneWithoutGroupsInput
@@ -646,6 +724,9 @@ export type SmallGroupUncheckedCreateWithoutLeaderInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   members?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutGroupInput
 }
@@ -682,6 +763,9 @@ export type SmallGroupCreateWithoutDepartmentInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutSmallGroupsInput
   leader?: Prisma.UserCreateNestedOneWithoutGroupsLedInput
@@ -696,6 +780,9 @@ export type SmallGroupUncheckedCreateWithoutDepartmentInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   members?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutGroupInput
 }
@@ -732,6 +819,9 @@ export type SmallGroupCreateWithoutMembersInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutSmallGroupsInput
   department?: Prisma.DepartmentCreateNestedOneWithoutGroupsInput
@@ -747,6 +837,9 @@ export type SmallGroupUncheckedCreateWithoutMembersInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -772,6 +865,9 @@ export type SmallGroupUpdateWithoutMembersInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutSmallGroupsNestedInput
   department?: Prisma.DepartmentUpdateOneWithoutGroupsNestedInput
@@ -787,6 +883,9 @@ export type SmallGroupUncheckedUpdateWithoutMembersInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -798,6 +897,9 @@ export type SmallGroupCreateManyChurchInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -807,6 +909,9 @@ export type SmallGroupUpdateWithoutChurchInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   department?: Prisma.DepartmentUpdateOneWithoutGroupsNestedInput
   leader?: Prisma.UserUpdateOneWithoutGroupsLedNestedInput
@@ -821,6 +926,9 @@ export type SmallGroupUncheckedUpdateWithoutChurchInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.GroupMemberUncheckedUpdateManyWithoutGroupNestedInput
 }
@@ -833,6 +941,9 @@ export type SmallGroupUncheckedUpdateManyWithoutChurchInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -844,6 +955,9 @@ export type SmallGroupCreateManyLeaderInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -853,6 +967,9 @@ export type SmallGroupUpdateWithoutLeaderInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutSmallGroupsNestedInput
   department?: Prisma.DepartmentUpdateOneWithoutGroupsNestedInput
@@ -867,6 +984,9 @@ export type SmallGroupUncheckedUpdateWithoutLeaderInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.GroupMemberUncheckedUpdateManyWithoutGroupNestedInput
 }
@@ -879,6 +999,9 @@ export type SmallGroupUncheckedUpdateManyWithoutLeaderInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -890,6 +1013,9 @@ export type SmallGroupCreateManyDepartmentInput = {
   meetingLocation?: string | null
   meetingDay?: string | null
   meetingTime?: string | null
+  isOnline?: boolean
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -899,6 +1025,9 @@ export type SmallGroupUpdateWithoutDepartmentInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutSmallGroupsNestedInput
   leader?: Prisma.UserUpdateOneWithoutGroupsLedNestedInput
@@ -913,6 +1042,9 @@ export type SmallGroupUncheckedUpdateWithoutDepartmentInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.GroupMemberUncheckedUpdateManyWithoutGroupNestedInput
 }
@@ -925,6 +1057,9 @@ export type SmallGroupUncheckedUpdateManyWithoutDepartmentInput = {
   meetingLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingDay?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meetingTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -968,6 +1103,9 @@ export type SmallGroupSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   meetingLocation?: boolean
   meetingDay?: boolean
   meetingTime?: boolean
+  isOnline?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   department?: boolean | Prisma.SmallGroup$departmentArgs<ExtArgs>
@@ -985,6 +1123,9 @@ export type SmallGroupSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   meetingLocation?: boolean
   meetingDay?: boolean
   meetingTime?: boolean
+  isOnline?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   department?: boolean | Prisma.SmallGroup$departmentArgs<ExtArgs>
@@ -1000,6 +1141,9 @@ export type SmallGroupSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   meetingLocation?: boolean
   meetingDay?: boolean
   meetingTime?: boolean
+  isOnline?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   department?: boolean | Prisma.SmallGroup$departmentArgs<ExtArgs>
@@ -1015,10 +1159,13 @@ export type SmallGroupSelectScalar = {
   meetingLocation?: boolean
   meetingDay?: boolean
   meetingTime?: boolean
+  isOnline?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
 }
 
-export type SmallGroupOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "churchId" | "departmentId" | "name" | "leaderId" | "meetingLocation" | "meetingDay" | "meetingTime" | "createdAt", ExtArgs["result"]["smallGroup"]>
+export type SmallGroupOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "churchId" | "departmentId" | "name" | "leaderId" | "meetingLocation" | "meetingDay" | "meetingTime" | "isOnline" | "meetingUrl" | "meetingPlatform" | "createdAt", ExtArgs["result"]["smallGroup"]>
 export type SmallGroupInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   department?: boolean | Prisma.SmallGroup$departmentArgs<ExtArgs>
@@ -1054,6 +1201,9 @@ export type $SmallGroupPayload<ExtArgs extends runtime.Types.Extensions.Internal
     meetingLocation: string | null
     meetingDay: string | null
     meetingTime: string | null
+    isOnline: boolean
+    meetingUrl: string | null
+    meetingPlatform: string | null
     createdAt: Date
   }, ExtArgs["result"]["smallGroup"]>
   composites: {}
@@ -1490,6 +1640,9 @@ export interface SmallGroupFieldRefs {
   readonly meetingLocation: Prisma.FieldRef<"SmallGroup", 'String'>
   readonly meetingDay: Prisma.FieldRef<"SmallGroup", 'String'>
   readonly meetingTime: Prisma.FieldRef<"SmallGroup", 'String'>
+  readonly isOnline: Prisma.FieldRef<"SmallGroup", 'Boolean'>
+  readonly meetingUrl: Prisma.FieldRef<"SmallGroup", 'String'>
+  readonly meetingPlatform: Prisma.FieldRef<"SmallGroup", 'String'>
   readonly createdAt: Prisma.FieldRef<"SmallGroup", 'DateTime'>
 }
     

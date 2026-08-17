@@ -60,6 +60,7 @@ export const ModelName = {
   DepartmentMember: 'DepartmentMember',
   ServiceType: 'ServiceType',
   Attendance: 'Attendance',
+  OnlineAttendance: 'OnlineAttendance',
   FinanceCategory: 'FinanceCategory',
   FinanceTransaction: 'FinanceTransaction',
   Event: 'Event',
@@ -250,6 +251,21 @@ export const AttendanceScalarFieldEnum = {
 export type AttendanceScalarFieldEnum = (typeof AttendanceScalarFieldEnum)[keyof typeof AttendanceScalarFieldEnum]
 
 
+export const OnlineAttendanceScalarFieldEnum = {
+  id: 'id',
+  churchId: 'churchId',
+  eventId: 'eventId',
+  memberId: 'memberId',
+  guestName: 'guestName',
+  platform: 'platform',
+  joinedAt: 'joinedAt',
+  leftAt: 'leftAt',
+  notes: 'notes'
+} as const
+
+export type OnlineAttendanceScalarFieldEnum = (typeof OnlineAttendanceScalarFieldEnum)[keyof typeof OnlineAttendanceScalarFieldEnum]
+
+
 export const FinanceCategoryScalarFieldEnum = {
   id: 'id',
   churchId: 'churchId',
@@ -290,6 +306,10 @@ export const EventScalarFieldEnum = {
   location: 'location',
   registrationEnabled: 'registrationEnabled',
   fee: 'fee',
+  isOnline: 'isOnline',
+  streamUrl: 'streamUrl',
+  meetingUrl: 'meetingUrl',
+  meetingPlatform: 'meetingPlatform',
   createdAt: 'createdAt'
 } as const
 
@@ -320,6 +340,9 @@ export const SmallGroupScalarFieldEnum = {
   meetingLocation: 'meetingLocation',
   meetingDay: 'meetingDay',
   meetingTime: 'meetingTime',
+  isOnline: 'isOnline',
+  meetingUrl: 'meetingUrl',
+  meetingPlatform: 'meetingPlatform',
   createdAt: 'createdAt'
 } as const
 

@@ -63,6 +63,11 @@ export type ServiceType = Prisma.ServiceTypeModel
  */
 export type Attendance = Prisma.AttendanceModel
 /**
+ * Model OnlineAttendance
+ * 
+ */
+export type OnlineAttendance = Prisma.OnlineAttendanceModel
+/**
  * Model FinanceCategory
  * 
  */

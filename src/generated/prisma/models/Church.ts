@@ -353,6 +353,7 @@ export type ChurchWhereInput = {
   familyMembers?: Prisma.FamilyMemberListRelationFilter
   departmentMembers?: Prisma.DepartmentMemberListRelationFilter
   groupMembers?: Prisma.GroupMemberListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }
 
 export type ChurchOrderByWithRelationInput = {
@@ -404,6 +405,7 @@ export type ChurchOrderByWithRelationInput = {
   familyMembers?: Prisma.FamilyMemberOrderByRelationAggregateInput
   departmentMembers?: Prisma.DepartmentMemberOrderByRelationAggregateInput
   groupMembers?: Prisma.GroupMemberOrderByRelationAggregateInput
+  onlineAttendances?: Prisma.OnlineAttendanceOrderByRelationAggregateInput
 }
 
 export type ChurchWhereUniqueInput = Prisma.AtLeast<{
@@ -458,6 +460,7 @@ export type ChurchWhereUniqueInput = Prisma.AtLeast<{
   familyMembers?: Prisma.FamilyMemberListRelationFilter
   departmentMembers?: Prisma.DepartmentMemberListRelationFilter
   groupMembers?: Prisma.GroupMemberListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }, "id" | "slug">
 
 export type ChurchOrderByWithAggregationInput = {
@@ -561,6 +564,7 @@ export type ChurchCreateInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateInput = {
@@ -612,6 +616,7 @@ export type ChurchUncheckedCreateInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUpdateInput = {
@@ -663,6 +668,7 @@ export type ChurchUpdateInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateInput = {
@@ -714,6 +720,7 @@ export type ChurchUncheckedUpdateInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateManyInput = {
@@ -1008,6 +1015,20 @@ export type ChurchUpdateOneRequiredWithoutAttendancesNestedInput = {
   upsert?: Prisma.ChurchUpsertWithoutAttendancesInput
   connect?: Prisma.ChurchWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.ChurchUpdateToOneWithWhereWithoutAttendancesInput, Prisma.ChurchUpdateWithoutAttendancesInput>, Prisma.ChurchUncheckedUpdateWithoutAttendancesInput>
+}
+
+export type ChurchCreateNestedOneWithoutOnlineAttendancesInput = {
+  create?: Prisma.XOR<Prisma.ChurchCreateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.ChurchCreateOrConnectWithoutOnlineAttendancesInput
+  connect?: Prisma.ChurchWhereUniqueInput
+}
+
+export type ChurchUpdateOneRequiredWithoutOnlineAttendancesNestedInput = {
+  create?: Prisma.XOR<Prisma.ChurchCreateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.ChurchCreateOrConnectWithoutOnlineAttendancesInput
+  upsert?: Prisma.ChurchUpsertWithoutOnlineAttendancesInput
+  connect?: Prisma.ChurchWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ChurchUpdateToOneWithWhereWithoutOnlineAttendancesInput, Prisma.ChurchUpdateWithoutOnlineAttendancesInput>, Prisma.ChurchUncheckedUpdateWithoutOnlineAttendancesInput>
 }
 
 export type ChurchCreateNestedOneWithoutFinanceCategoriesInput = {
@@ -1354,6 +1375,7 @@ export type ChurchCreateWithoutUsersInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutUsersInput = {
@@ -1404,6 +1426,7 @@ export type ChurchUncheckedCreateWithoutUsersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutUsersInput = {
@@ -1470,6 +1493,7 @@ export type ChurchUpdateWithoutUsersInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutUsersInput = {
@@ -1520,6 +1544,7 @@ export type ChurchUncheckedUpdateWithoutUsersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutMembersInput = {
@@ -1570,6 +1595,7 @@ export type ChurchCreateWithoutMembersInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutMembersInput = {
@@ -1620,6 +1646,7 @@ export type ChurchUncheckedCreateWithoutMembersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutMembersInput = {
@@ -1686,6 +1713,7 @@ export type ChurchUpdateWithoutMembersInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutMembersInput = {
@@ -1736,6 +1764,7 @@ export type ChurchUncheckedUpdateWithoutMembersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutFamiliesInput = {
@@ -1786,6 +1815,7 @@ export type ChurchCreateWithoutFamiliesInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutFamiliesInput = {
@@ -1836,6 +1866,7 @@ export type ChurchUncheckedCreateWithoutFamiliesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutFamiliesInput = {
@@ -1902,6 +1933,7 @@ export type ChurchUpdateWithoutFamiliesInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutFamiliesInput = {
@@ -1952,6 +1984,7 @@ export type ChurchUncheckedUpdateWithoutFamiliesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutFamilyMembersInput = {
@@ -2002,6 +2035,7 @@ export type ChurchCreateWithoutFamilyMembersInput = {
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutFamilyMembersInput = {
@@ -2052,6 +2086,7 @@ export type ChurchUncheckedCreateWithoutFamilyMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutFamilyMembersInput = {
@@ -2118,6 +2153,7 @@ export type ChurchUpdateWithoutFamilyMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutFamilyMembersInput = {
@@ -2168,6 +2204,7 @@ export type ChurchUncheckedUpdateWithoutFamilyMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutDepartmentsInput = {
@@ -2218,6 +2255,7 @@ export type ChurchCreateWithoutDepartmentsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutDepartmentsInput = {
@@ -2268,6 +2306,7 @@ export type ChurchUncheckedCreateWithoutDepartmentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutDepartmentsInput = {
@@ -2334,6 +2373,7 @@ export type ChurchUpdateWithoutDepartmentsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutDepartmentsInput = {
@@ -2384,6 +2424,7 @@ export type ChurchUncheckedUpdateWithoutDepartmentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutDepartmentMembersInput = {
@@ -2434,6 +2475,7 @@ export type ChurchCreateWithoutDepartmentMembersInput = {
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutChurchInput
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutDepartmentMembersInput = {
@@ -2484,6 +2526,7 @@ export type ChurchUncheckedCreateWithoutDepartmentMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutChurchInput
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutDepartmentMembersInput = {
@@ -2550,6 +2593,7 @@ export type ChurchUpdateWithoutDepartmentMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutChurchNestedInput
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutDepartmentMembersInput = {
@@ -2600,6 +2644,7 @@ export type ChurchUncheckedUpdateWithoutDepartmentMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutChurchNestedInput
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutServiceTypesInput = {
@@ -2650,6 +2695,7 @@ export type ChurchCreateWithoutServiceTypesInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutServiceTypesInput = {
@@ -2700,6 +2746,7 @@ export type ChurchUncheckedCreateWithoutServiceTypesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutServiceTypesInput = {
@@ -2766,6 +2813,7 @@ export type ChurchUpdateWithoutServiceTypesInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutServiceTypesInput = {
@@ -2816,6 +2864,7 @@ export type ChurchUncheckedUpdateWithoutServiceTypesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutAttendancesInput = {
@@ -2866,6 +2915,7 @@ export type ChurchCreateWithoutAttendancesInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutAttendancesInput = {
@@ -2916,6 +2966,7 @@ export type ChurchUncheckedCreateWithoutAttendancesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutAttendancesInput = {
@@ -2982,6 +3033,7 @@ export type ChurchUpdateWithoutAttendancesInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutAttendancesInput = {
@@ -3008,6 +3060,227 @@ export type ChurchUncheckedUpdateWithoutAttendancesInput = {
   members?: Prisma.MemberUncheckedUpdateManyWithoutChurchNestedInput
   families?: Prisma.FamilyUncheckedUpdateManyWithoutChurchNestedInput
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutChurchNestedInput
+  financeCategories?: Prisma.FinanceCategoryUncheckedUpdateManyWithoutChurchNestedInput
+  financeTransactions?: Prisma.FinanceTransactionUncheckedUpdateManyWithoutChurchNestedInput
+  events?: Prisma.EventUncheckedUpdateManyWithoutChurchNestedInput
+  eventRegistrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutChurchNestedInput
+  smallGroups?: Prisma.SmallGroupUncheckedUpdateManyWithoutChurchNestedInput
+  visitors?: Prisma.VisitorUncheckedUpdateManyWithoutChurchNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutChurchNestedInput
+  prayerRequests?: Prisma.PrayerRequestUncheckedUpdateManyWithoutChurchNestedInput
+  counselingAppointments?: Prisma.CounselingAppointmentUncheckedUpdateManyWithoutChurchNestedInput
+  sermons?: Prisma.SermonUncheckedUpdateManyWithoutChurchNestedInput
+  communications?: Prisma.CommunicationUncheckedUpdateManyWithoutChurchNestedInput
+  assets?: Prisma.AssetUncheckedUpdateManyWithoutChurchNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutChurchNestedInput
+  staffMembers?: Prisma.StaffMemberUncheckedUpdateManyWithoutChurchNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutChurchNestedInput
+  announcements?: Prisma.AnnouncementUncheckedUpdateManyWithoutChurchNestedInput
+  supportTickets?: Prisma.SupportTicketUncheckedUpdateManyWithoutChurchNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutChurchNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutChurchNestedInput
+  serviceTypes?: Prisma.ServiceTypeUncheckedUpdateManyWithoutChurchNestedInput
+  memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutChurchNestedInput
+  familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
+  departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
+  groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
+}
+
+export type ChurchCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  name: string
+  slug: string
+  motto?: string | null
+  description?: string | null
+  logo?: string | null
+  address?: string | null
+  gps?: string | null
+  phone?: string | null
+  email?: string | null
+  website?: string | null
+  socials?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  plan?: $Enums.ChurchPlan
+  status?: $Enums.ChurchStatus
+  planExpiresAt?: Date | string | null
+  memberLimit?: number
+  currency?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutChurchInput
+  members?: Prisma.MemberCreateNestedManyWithoutChurchInput
+  families?: Prisma.FamilyCreateNestedManyWithoutChurchInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutChurchInput
+  attendances?: Prisma.AttendanceCreateNestedManyWithoutChurchInput
+  financeCategories?: Prisma.FinanceCategoryCreateNestedManyWithoutChurchInput
+  financeTransactions?: Prisma.FinanceTransactionCreateNestedManyWithoutChurchInput
+  events?: Prisma.EventCreateNestedManyWithoutChurchInput
+  eventRegistrations?: Prisma.EventRegistrationCreateNestedManyWithoutChurchInput
+  smallGroups?: Prisma.SmallGroupCreateNestedManyWithoutChurchInput
+  visitors?: Prisma.VisitorCreateNestedManyWithoutChurchInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutChurchInput
+  prayerRequests?: Prisma.PrayerRequestCreateNestedManyWithoutChurchInput
+  counselingAppointments?: Prisma.CounselingAppointmentCreateNestedManyWithoutChurchInput
+  sermons?: Prisma.SermonCreateNestedManyWithoutChurchInput
+  communications?: Prisma.CommunicationCreateNestedManyWithoutChurchInput
+  assets?: Prisma.AssetCreateNestedManyWithoutChurchInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutChurchInput
+  staffMembers?: Prisma.StaffMemberCreateNestedManyWithoutChurchInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutChurchInput
+  announcements?: Prisma.AnnouncementCreateNestedManyWithoutChurchInput
+  supportTickets?: Prisma.SupportTicketCreateNestedManyWithoutChurchInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutChurchInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutChurchInput
+  serviceTypes?: Prisma.ServiceTypeCreateNestedManyWithoutChurchInput
+  memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutChurchInput
+  familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
+  departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
+  groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+}
+
+export type ChurchUncheckedCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  name: string
+  slug: string
+  motto?: string | null
+  description?: string | null
+  logo?: string | null
+  address?: string | null
+  gps?: string | null
+  phone?: string | null
+  email?: string | null
+  website?: string | null
+  socials?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  plan?: $Enums.ChurchPlan
+  status?: $Enums.ChurchStatus
+  planExpiresAt?: Date | string | null
+  memberLimit?: number
+  currency?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutChurchInput
+  members?: Prisma.MemberUncheckedCreateNestedManyWithoutChurchInput
+  families?: Prisma.FamilyUncheckedCreateNestedManyWithoutChurchInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutChurchInput
+  attendances?: Prisma.AttendanceUncheckedCreateNestedManyWithoutChurchInput
+  financeCategories?: Prisma.FinanceCategoryUncheckedCreateNestedManyWithoutChurchInput
+  financeTransactions?: Prisma.FinanceTransactionUncheckedCreateNestedManyWithoutChurchInput
+  events?: Prisma.EventUncheckedCreateNestedManyWithoutChurchInput
+  eventRegistrations?: Prisma.EventRegistrationUncheckedCreateNestedManyWithoutChurchInput
+  smallGroups?: Prisma.SmallGroupUncheckedCreateNestedManyWithoutChurchInput
+  visitors?: Prisma.VisitorUncheckedCreateNestedManyWithoutChurchInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutChurchInput
+  prayerRequests?: Prisma.PrayerRequestUncheckedCreateNestedManyWithoutChurchInput
+  counselingAppointments?: Prisma.CounselingAppointmentUncheckedCreateNestedManyWithoutChurchInput
+  sermons?: Prisma.SermonUncheckedCreateNestedManyWithoutChurchInput
+  communications?: Prisma.CommunicationUncheckedCreateNestedManyWithoutChurchInput
+  assets?: Prisma.AssetUncheckedCreateNestedManyWithoutChurchInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutChurchInput
+  staffMembers?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutChurchInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutChurchInput
+  announcements?: Prisma.AnnouncementUncheckedCreateNestedManyWithoutChurchInput
+  supportTickets?: Prisma.SupportTicketUncheckedCreateNestedManyWithoutChurchInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutChurchInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutChurchInput
+  serviceTypes?: Prisma.ServiceTypeUncheckedCreateNestedManyWithoutChurchInput
+  memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutChurchInput
+  familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
+  departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
+  groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+}
+
+export type ChurchCreateOrConnectWithoutOnlineAttendancesInput = {
+  where: Prisma.ChurchWhereUniqueInput
+  create: Prisma.XOR<Prisma.ChurchCreateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedCreateWithoutOnlineAttendancesInput>
+}
+
+export type ChurchUpsertWithoutOnlineAttendancesInput = {
+  update: Prisma.XOR<Prisma.ChurchUpdateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedUpdateWithoutOnlineAttendancesInput>
+  create: Prisma.XOR<Prisma.ChurchCreateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedCreateWithoutOnlineAttendancesInput>
+  where?: Prisma.ChurchWhereInput
+}
+
+export type ChurchUpdateToOneWithWhereWithoutOnlineAttendancesInput = {
+  where?: Prisma.ChurchWhereInput
+  data: Prisma.XOR<Prisma.ChurchUpdateWithoutOnlineAttendancesInput, Prisma.ChurchUncheckedUpdateWithoutOnlineAttendancesInput>
+}
+
+export type ChurchUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  motto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socials?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  plan?: Prisma.EnumChurchPlanFieldUpdateOperationsInput | $Enums.ChurchPlan
+  status?: Prisma.EnumChurchStatusFieldUpdateOperationsInput | $Enums.ChurchStatus
+  planExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutChurchNestedInput
+  members?: Prisma.MemberUpdateManyWithoutChurchNestedInput
+  families?: Prisma.FamilyUpdateManyWithoutChurchNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutChurchNestedInput
+  attendances?: Prisma.AttendanceUpdateManyWithoutChurchNestedInput
+  financeCategories?: Prisma.FinanceCategoryUpdateManyWithoutChurchNestedInput
+  financeTransactions?: Prisma.FinanceTransactionUpdateManyWithoutChurchNestedInput
+  events?: Prisma.EventUpdateManyWithoutChurchNestedInput
+  eventRegistrations?: Prisma.EventRegistrationUpdateManyWithoutChurchNestedInput
+  smallGroups?: Prisma.SmallGroupUpdateManyWithoutChurchNestedInput
+  visitors?: Prisma.VisitorUpdateManyWithoutChurchNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutChurchNestedInput
+  prayerRequests?: Prisma.PrayerRequestUpdateManyWithoutChurchNestedInput
+  counselingAppointments?: Prisma.CounselingAppointmentUpdateManyWithoutChurchNestedInput
+  sermons?: Prisma.SermonUpdateManyWithoutChurchNestedInput
+  communications?: Prisma.CommunicationUpdateManyWithoutChurchNestedInput
+  assets?: Prisma.AssetUpdateManyWithoutChurchNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutChurchNestedInput
+  staffMembers?: Prisma.StaffMemberUpdateManyWithoutChurchNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutChurchNestedInput
+  announcements?: Prisma.AnnouncementUpdateManyWithoutChurchNestedInput
+  supportTickets?: Prisma.SupportTicketUpdateManyWithoutChurchNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutChurchNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutChurchNestedInput
+  serviceTypes?: Prisma.ServiceTypeUpdateManyWithoutChurchNestedInput
+  memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutChurchNestedInput
+  familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
+  departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
+  groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+}
+
+export type ChurchUncheckedUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  motto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socials?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  plan?: Prisma.EnumChurchPlanFieldUpdateOperationsInput | $Enums.ChurchPlan
+  status?: Prisma.EnumChurchStatusFieldUpdateOperationsInput | $Enums.ChurchStatus
+  planExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutChurchNestedInput
+  members?: Prisma.MemberUncheckedUpdateManyWithoutChurchNestedInput
+  families?: Prisma.FamilyUncheckedUpdateManyWithoutChurchNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutChurchNestedInput
+  attendances?: Prisma.AttendanceUncheckedUpdateManyWithoutChurchNestedInput
   financeCategories?: Prisma.FinanceCategoryUncheckedUpdateManyWithoutChurchNestedInput
   financeTransactions?: Prisma.FinanceTransactionUncheckedUpdateManyWithoutChurchNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutChurchNestedInput
@@ -3082,6 +3355,7 @@ export type ChurchCreateWithoutFinanceCategoriesInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutFinanceCategoriesInput = {
@@ -3132,6 +3406,7 @@ export type ChurchUncheckedCreateWithoutFinanceCategoriesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutFinanceCategoriesInput = {
@@ -3198,6 +3473,7 @@ export type ChurchUpdateWithoutFinanceCategoriesInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutFinanceCategoriesInput = {
@@ -3248,6 +3524,7 @@ export type ChurchUncheckedUpdateWithoutFinanceCategoriesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutFinanceTransactionsInput = {
@@ -3298,6 +3575,7 @@ export type ChurchCreateWithoutFinanceTransactionsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutFinanceTransactionsInput = {
@@ -3348,6 +3626,7 @@ export type ChurchUncheckedCreateWithoutFinanceTransactionsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutFinanceTransactionsInput = {
@@ -3414,6 +3693,7 @@ export type ChurchUpdateWithoutFinanceTransactionsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutFinanceTransactionsInput = {
@@ -3464,6 +3744,7 @@ export type ChurchUncheckedUpdateWithoutFinanceTransactionsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutEventsInput = {
@@ -3514,6 +3795,7 @@ export type ChurchCreateWithoutEventsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutEventsInput = {
@@ -3564,6 +3846,7 @@ export type ChurchUncheckedCreateWithoutEventsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutEventsInput = {
@@ -3630,6 +3913,7 @@ export type ChurchUpdateWithoutEventsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutEventsInput = {
@@ -3680,6 +3964,7 @@ export type ChurchUncheckedUpdateWithoutEventsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutEventRegistrationsInput = {
@@ -3730,6 +4015,7 @@ export type ChurchCreateWithoutEventRegistrationsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutEventRegistrationsInput = {
@@ -3780,6 +4066,7 @@ export type ChurchUncheckedCreateWithoutEventRegistrationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutEventRegistrationsInput = {
@@ -3846,6 +4133,7 @@ export type ChurchUpdateWithoutEventRegistrationsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutEventRegistrationsInput = {
@@ -3896,6 +4184,7 @@ export type ChurchUncheckedUpdateWithoutEventRegistrationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutSmallGroupsInput = {
@@ -3946,6 +4235,7 @@ export type ChurchCreateWithoutSmallGroupsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutSmallGroupsInput = {
@@ -3996,6 +4286,7 @@ export type ChurchUncheckedCreateWithoutSmallGroupsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutSmallGroupsInput = {
@@ -4062,6 +4353,7 @@ export type ChurchUpdateWithoutSmallGroupsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutSmallGroupsInput = {
@@ -4112,6 +4404,7 @@ export type ChurchUncheckedUpdateWithoutSmallGroupsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutGroupMembersInput = {
@@ -4162,6 +4455,7 @@ export type ChurchCreateWithoutGroupMembersInput = {
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutChurchInput
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutGroupMembersInput = {
@@ -4212,6 +4506,7 @@ export type ChurchUncheckedCreateWithoutGroupMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutChurchInput
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutGroupMembersInput = {
@@ -4278,6 +4573,7 @@ export type ChurchUpdateWithoutGroupMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutChurchNestedInput
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutGroupMembersInput = {
@@ -4328,6 +4624,7 @@ export type ChurchUncheckedUpdateWithoutGroupMembersInput = {
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutChurchNestedInput
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutVisitorsInput = {
@@ -4378,6 +4675,7 @@ export type ChurchCreateWithoutVisitorsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutVisitorsInput = {
@@ -4428,6 +4726,7 @@ export type ChurchUncheckedCreateWithoutVisitorsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutVisitorsInput = {
@@ -4494,6 +4793,7 @@ export type ChurchUpdateWithoutVisitorsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutVisitorsInput = {
@@ -4544,6 +4844,7 @@ export type ChurchUncheckedUpdateWithoutVisitorsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutFollowUpsInput = {
@@ -4594,6 +4895,7 @@ export type ChurchCreateWithoutFollowUpsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutFollowUpsInput = {
@@ -4644,6 +4946,7 @@ export type ChurchUncheckedCreateWithoutFollowUpsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutFollowUpsInput = {
@@ -4710,6 +5013,7 @@ export type ChurchUpdateWithoutFollowUpsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutFollowUpsInput = {
@@ -4760,6 +5064,7 @@ export type ChurchUncheckedUpdateWithoutFollowUpsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutPrayerRequestsInput = {
@@ -4810,6 +5115,7 @@ export type ChurchCreateWithoutPrayerRequestsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutPrayerRequestsInput = {
@@ -4860,6 +5166,7 @@ export type ChurchUncheckedCreateWithoutPrayerRequestsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutPrayerRequestsInput = {
@@ -4926,6 +5233,7 @@ export type ChurchUpdateWithoutPrayerRequestsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutPrayerRequestsInput = {
@@ -4976,6 +5284,7 @@ export type ChurchUncheckedUpdateWithoutPrayerRequestsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutCounselingAppointmentsInput = {
@@ -5026,6 +5335,7 @@ export type ChurchCreateWithoutCounselingAppointmentsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutCounselingAppointmentsInput = {
@@ -5076,6 +5386,7 @@ export type ChurchUncheckedCreateWithoutCounselingAppointmentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutCounselingAppointmentsInput = {
@@ -5142,6 +5453,7 @@ export type ChurchUpdateWithoutCounselingAppointmentsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutCounselingAppointmentsInput = {
@@ -5192,6 +5504,7 @@ export type ChurchUncheckedUpdateWithoutCounselingAppointmentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutSermonsInput = {
@@ -5242,6 +5555,7 @@ export type ChurchCreateWithoutSermonsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutSermonsInput = {
@@ -5292,6 +5606,7 @@ export type ChurchUncheckedCreateWithoutSermonsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutSermonsInput = {
@@ -5358,6 +5673,7 @@ export type ChurchUpdateWithoutSermonsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutSermonsInput = {
@@ -5408,6 +5724,7 @@ export type ChurchUncheckedUpdateWithoutSermonsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutCommunicationsInput = {
@@ -5458,6 +5775,7 @@ export type ChurchCreateWithoutCommunicationsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutCommunicationsInput = {
@@ -5508,6 +5826,7 @@ export type ChurchUncheckedCreateWithoutCommunicationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutCommunicationsInput = {
@@ -5574,6 +5893,7 @@ export type ChurchUpdateWithoutCommunicationsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutCommunicationsInput = {
@@ -5624,6 +5944,7 @@ export type ChurchUncheckedUpdateWithoutCommunicationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutAssetsInput = {
@@ -5674,6 +5995,7 @@ export type ChurchCreateWithoutAssetsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutAssetsInput = {
@@ -5724,6 +6046,7 @@ export type ChurchUncheckedCreateWithoutAssetsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutAssetsInput = {
@@ -5790,6 +6113,7 @@ export type ChurchUpdateWithoutAssetsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutAssetsInput = {
@@ -5840,6 +6164,7 @@ export type ChurchUncheckedUpdateWithoutAssetsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutInventoryItemsInput = {
@@ -5890,6 +6215,7 @@ export type ChurchCreateWithoutInventoryItemsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutInventoryItemsInput = {
@@ -5940,6 +6266,7 @@ export type ChurchUncheckedCreateWithoutInventoryItemsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutInventoryItemsInput = {
@@ -6006,6 +6333,7 @@ export type ChurchUpdateWithoutInventoryItemsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutInventoryItemsInput = {
@@ -6056,6 +6384,7 @@ export type ChurchUncheckedUpdateWithoutInventoryItemsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutStaffMembersInput = {
@@ -6106,6 +6435,7 @@ export type ChurchCreateWithoutStaffMembersInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutStaffMembersInput = {
@@ -6156,6 +6486,7 @@ export type ChurchUncheckedCreateWithoutStaffMembersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutStaffMembersInput = {
@@ -6222,6 +6553,7 @@ export type ChurchUpdateWithoutStaffMembersInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutStaffMembersInput = {
@@ -6272,6 +6604,7 @@ export type ChurchUncheckedUpdateWithoutStaffMembersInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutCertificatesInput = {
@@ -6322,6 +6655,7 @@ export type ChurchCreateWithoutCertificatesInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutCertificatesInput = {
@@ -6372,6 +6706,7 @@ export type ChurchUncheckedCreateWithoutCertificatesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutCertificatesInput = {
@@ -6438,6 +6773,7 @@ export type ChurchUpdateWithoutCertificatesInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutCertificatesInput = {
@@ -6488,6 +6824,7 @@ export type ChurchUncheckedUpdateWithoutCertificatesInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutAnnouncementsInput = {
@@ -6538,6 +6875,7 @@ export type ChurchCreateWithoutAnnouncementsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutAnnouncementsInput = {
@@ -6588,6 +6926,7 @@ export type ChurchUncheckedCreateWithoutAnnouncementsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutAnnouncementsInput = {
@@ -6654,6 +6993,7 @@ export type ChurchUpdateWithoutAnnouncementsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutAnnouncementsInput = {
@@ -6704,6 +7044,7 @@ export type ChurchUncheckedUpdateWithoutAnnouncementsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutNotificationsInput = {
@@ -6754,6 +7095,7 @@ export type ChurchCreateWithoutNotificationsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutNotificationsInput = {
@@ -6804,6 +7146,7 @@ export type ChurchUncheckedCreateWithoutNotificationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutNotificationsInput = {
@@ -6870,6 +7213,7 @@ export type ChurchUpdateWithoutNotificationsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutNotificationsInput = {
@@ -6920,6 +7264,7 @@ export type ChurchUncheckedUpdateWithoutNotificationsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutSupportTicketsInput = {
@@ -6970,6 +7315,7 @@ export type ChurchCreateWithoutSupportTicketsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutSupportTicketsInput = {
@@ -7020,6 +7366,7 @@ export type ChurchUncheckedCreateWithoutSupportTicketsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutSupportTicketsInput = {
@@ -7086,6 +7433,7 @@ export type ChurchUpdateWithoutSupportTicketsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutSupportTicketsInput = {
@@ -7136,6 +7484,7 @@ export type ChurchUncheckedUpdateWithoutSupportTicketsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutAuditLogsInput = {
@@ -7186,6 +7535,7 @@ export type ChurchCreateWithoutAuditLogsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutAuditLogsInput = {
@@ -7236,6 +7586,7 @@ export type ChurchUncheckedCreateWithoutAuditLogsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutAuditLogsInput = {
@@ -7302,6 +7653,7 @@ export type ChurchUpdateWithoutAuditLogsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutAuditLogsInput = {
@@ -7352,6 +7704,7 @@ export type ChurchUncheckedUpdateWithoutAuditLogsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchCreateWithoutMemberDocumentsInput = {
@@ -7402,6 +7755,7 @@ export type ChurchCreateWithoutMemberDocumentsInput = {
   familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchUncheckedCreateWithoutMemberDocumentsInput = {
@@ -7452,6 +7806,7 @@ export type ChurchUncheckedCreateWithoutMemberDocumentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutChurchInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutChurchInput
   groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutChurchInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutChurchInput
 }
 
 export type ChurchCreateOrConnectWithoutMemberDocumentsInput = {
@@ -7518,6 +7873,7 @@ export type ChurchUpdateWithoutMemberDocumentsInput = {
   familyMembers?: Prisma.FamilyMemberUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutChurchNestedInput
 }
 
 export type ChurchUncheckedUpdateWithoutMemberDocumentsInput = {
@@ -7568,6 +7924,7 @@ export type ChurchUncheckedUpdateWithoutMemberDocumentsInput = {
   familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutChurchNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutChurchNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutChurchNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutChurchNestedInput
 }
 
 
@@ -7605,6 +7962,7 @@ export type ChurchCountOutputType = {
   familyMembers: number
   departmentMembers: number
   groupMembers: number
+  onlineAttendances: number
 }
 
 export type ChurchCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -7637,6 +7995,7 @@ export type ChurchCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   familyMembers?: boolean | ChurchCountOutputTypeCountFamilyMembersArgs
   departmentMembers?: boolean | ChurchCountOutputTypeCountDepartmentMembersArgs
   groupMembers?: boolean | ChurchCountOutputTypeCountGroupMembersArgs
+  onlineAttendances?: boolean | ChurchCountOutputTypeCountOnlineAttendancesArgs
 }
 
 /**
@@ -7852,6 +8211,13 @@ export type ChurchCountOutputTypeCountGroupMembersArgs<ExtArgs extends runtime.T
   where?: Prisma.GroupMemberWhereInput
 }
 
+/**
+ * ChurchCountOutputType without action
+ */
+export type ChurchCountOutputTypeCountOnlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OnlineAttendanceWhereInput
+}
+
 
 export type ChurchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -7902,6 +8268,7 @@ export type ChurchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   familyMembers?: boolean | Prisma.Church$familyMembersArgs<ExtArgs>
   departmentMembers?: boolean | Prisma.Church$departmentMembersArgs<ExtArgs>
   groupMembers?: boolean | Prisma.Church$groupMembersArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Church$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.ChurchCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["church"]>
 
@@ -8002,6 +8369,7 @@ export type ChurchInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   familyMembers?: boolean | Prisma.Church$familyMembersArgs<ExtArgs>
   departmentMembers?: boolean | Prisma.Church$departmentMembersArgs<ExtArgs>
   groupMembers?: boolean | Prisma.Church$groupMembersArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Church$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.ChurchCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ChurchIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -8039,6 +8407,7 @@ export type $ChurchPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     familyMembers: Prisma.$FamilyMemberPayload<ExtArgs>[]
     departmentMembers: Prisma.$DepartmentMemberPayload<ExtArgs>[]
     groupMembers: Prisma.$GroupMemberPayload<ExtArgs>[]
+    onlineAttendances: Prisma.$OnlineAttendancePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -8483,6 +8852,7 @@ export interface Prisma__ChurchClient<T, Null = never, ExtArgs extends runtime.T
   familyMembers<T extends Prisma.Church$familyMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Church$familyMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   departmentMembers<T extends Prisma.Church$departmentMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Church$departmentMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   groupMembers<T extends Prisma.Church$groupMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Church$groupMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GroupMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  onlineAttendances<T extends Prisma.Church$onlineAttendancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Church$onlineAttendancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OnlineAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9617,6 +9987,30 @@ export type Church$groupMembersArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.GroupMemberScalarFieldEnum | Prisma.GroupMemberScalarFieldEnum[]
+}
+
+/**
+ * Church.onlineAttendances
+ */
+export type Church$onlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OnlineAttendance
+   */
+  select?: Prisma.OnlineAttendanceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OnlineAttendance
+   */
+  omit?: Prisma.OnlineAttendanceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OnlineAttendanceInclude<ExtArgs> | null
+  where?: Prisma.OnlineAttendanceWhereInput
+  orderBy?: Prisma.OnlineAttendanceOrderByWithRelationInput | Prisma.OnlineAttendanceOrderByWithRelationInput[]
+  cursor?: Prisma.OnlineAttendanceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OnlineAttendanceScalarFieldEnum | Prisma.OnlineAttendanceScalarFieldEnum[]
 }
 
 /**

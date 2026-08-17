@@ -16,6 +16,15 @@ import { GroupForm } from "@/components/forms/group-form";
 
 export const metadata = { title: "Groups" };
 
+const platformLabels: Record<string, string> = {
+  ZOOM: "Zoom",
+  GOOGLE_MEET: "Google Meet",
+  MICROSOFT_TEAMS: "Teams",
+  WHATSAPP: "WhatsApp",
+  DISCORD: "Discord",
+  OTHER: "Other",
+};
+
 export default async function GroupsPage() {
   const session = await requireUser();
   const ctx = await getChurchContext();
@@ -63,7 +72,7 @@ export default async function GroupsPage() {
           {groups.length === 0 ? (
             <EmptyState title="No groups yet" description="Create your first small group." />
           ) : (
-            <Table head={["Group", "Department", "Leader", "Meets", "Members"]}>
+            <Table head={["Group", "Department", "Leader", "Meets", "Members", "Online"]}>
               {groups.map((g) => (
                 <tr key={g.id}>
                   <td className="px-5 py-3 font-medium text-slate-900">{g.name}</td>
@@ -74,6 +83,27 @@ export default async function GroupsPage() {
                   </td>
                   <td className="px-5 py-3">
                     <Badge color="emerald">{formatNumber(g._count.members)}</Badge>
+                  </td>
+                  <td className="px-5 py-3">
+                    {g.isOnline ? (
+                      <div className="flex items-center gap-2">
+                        <Badge color="blue">
+                          {g.meetingPlatform ? platformLabels[g.meetingPlatform] ?? "Online" : "Online"}
+                        </Badge>
+                        {g.meetingUrl && (
+                          <a
+                            href={g.meetingUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-xs font-medium text-emerald-600 hover:underline"
+                          >
+                            Join
+                          </a>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-slate-400">—</span>
+                    )}
                   </td>
                 </tr>
               ))}

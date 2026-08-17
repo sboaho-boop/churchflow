@@ -265,6 +265,7 @@ model Church {
   familyMembers          FamilyMember[]
   departmentMembers      DepartmentMember[]
   groupMembers           GroupMember[]
+  onlineAttendances      OnlineAttendance[]
 
   @@index([status])
   @@index([plan])
@@ -356,6 +357,7 @@ model Member {
   certificates        Certificate[]
   memberDocuments     MemberDocument[]
   staffMemberships    StaffMember[]
+  onlineAttendances   OnlineAttendance[]
 
   @@unique([churchId, memberId])
   @@index([churchId, firstName, lastName])
@@ -471,6 +473,28 @@ model Attendance {
 }
 
 // ---------------------------------------------------------------------------
+// Online attendance
+// ---------------------------------------------------------------------------
+
+model OnlineAttendance {
+  id            String   @id @default(cuid())
+  churchId      String
+  church        Church   @relation(fields: [churchId], references: [id])
+  eventId       String?
+  event         Event?   @relation(fields: [eventId], references: [id])
+  memberId      String?
+  member        Member?  @relation(fields: [memberId], references: [id])
+  guestName     String?
+  platform      String?
+  joinedAt      DateTime @default(now())
+  leftAt        DateTime?
+  notes         String?
+
+  @@index([churchId, joinedAt])
+  @@index([churchId, eventId])
+}
+
+// ---------------------------------------------------------------------------
 // Giving & Finance
 // ---------------------------------------------------------------------------
 
@@ -527,9 +551,14 @@ model Event {
   location       String?
   registrationEnabled Boolean @default(true)
   fee            Decimal?  @db.Decimal(12, 2)
+  isOnline       Boolean   @default(false)
+  streamUrl      String?
+  meetingUrl     String?
+  meetingPlatform String?
   createdAt      DateTime  @default(now())
 
-  registrations EventRegistration[]
+  registrations    EventRegistration[]
+  onlineAttendances OnlineAttendance[]
 
   @@index([churchId, startDate])
 }
@@ -568,6 +597,9 @@ model SmallGroup {
   meetingLocation String?
   meetingDay    String?
   meetingTime   String?
+  isOnline      Boolean  @default(false)
+  meetingUrl    String?
+  meetingPlatform String?
   createdAt     DateTime @default(now())
 
   members GroupMember[]

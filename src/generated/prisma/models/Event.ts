@@ -45,6 +45,10 @@ export type EventMinAggregateOutputType = {
   location: string | null
   registrationEnabled: boolean | null
   fee: runtime.Decimal | null
+  isOnline: boolean | null
+  streamUrl: string | null
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date | null
 }
 
@@ -59,6 +63,10 @@ export type EventMaxAggregateOutputType = {
   location: string | null
   registrationEnabled: boolean | null
   fee: runtime.Decimal | null
+  isOnline: boolean | null
+  streamUrl: string | null
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date | null
 }
 
@@ -73,6 +81,10 @@ export type EventCountAggregateOutputType = {
   location: number
   registrationEnabled: number
   fee: number
+  isOnline: number
+  streamUrl: number
+  meetingUrl: number
+  meetingPlatform: number
   createdAt: number
   _all: number
 }
@@ -97,6 +109,10 @@ export type EventMinAggregateInputType = {
   location?: true
   registrationEnabled?: true
   fee?: true
+  isOnline?: true
+  streamUrl?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
 }
 
@@ -111,6 +127,10 @@ export type EventMaxAggregateInputType = {
   location?: true
   registrationEnabled?: true
   fee?: true
+  isOnline?: true
+  streamUrl?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
 }
 
@@ -125,6 +145,10 @@ export type EventCountAggregateInputType = {
   location?: true
   registrationEnabled?: true
   fee?: true
+  isOnline?: true
+  streamUrl?: true
+  meetingUrl?: true
+  meetingPlatform?: true
   createdAt?: true
   _all?: true
 }
@@ -226,6 +250,10 @@ export type EventGroupByOutputType = {
   location: string | null
   registrationEnabled: boolean
   fee: runtime.Decimal | null
+  isOnline: boolean
+  streamUrl: string | null
+  meetingUrl: string | null
+  meetingPlatform: string | null
   createdAt: Date
   _count: EventCountAggregateOutputType | null
   _avg: EventAvgAggregateOutputType | null
@@ -263,9 +291,14 @@ export type EventWhereInput = {
   location?: Prisma.StringNullableFilter<"Event"> | string | null
   registrationEnabled?: Prisma.BoolFilter<"Event"> | boolean
   fee?: Prisma.DecimalNullableFilter<"Event"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFilter<"Event"> | boolean
+  streamUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"Event"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Event"> | Date | string
   church?: Prisma.XOR<Prisma.ChurchScalarRelationFilter, Prisma.ChurchWhereInput>
   registrations?: Prisma.EventRegistrationListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }
 
 export type EventOrderByWithRelationInput = {
@@ -279,9 +312,14 @@ export type EventOrderByWithRelationInput = {
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   registrationEnabled?: Prisma.SortOrder
   fee?: Prisma.SortOrderInput | Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  streamUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   church?: Prisma.ChurchOrderByWithRelationInput
   registrations?: Prisma.EventRegistrationOrderByRelationAggregateInput
+  onlineAttendances?: Prisma.OnlineAttendanceOrderByRelationAggregateInput
 }
 
 export type EventWhereUniqueInput = Prisma.AtLeast<{
@@ -298,9 +336,14 @@ export type EventWhereUniqueInput = Prisma.AtLeast<{
   location?: Prisma.StringNullableFilter<"Event"> | string | null
   registrationEnabled?: Prisma.BoolFilter<"Event"> | boolean
   fee?: Prisma.DecimalNullableFilter<"Event"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFilter<"Event"> | boolean
+  streamUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"Event"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Event"> | Date | string
   church?: Prisma.XOR<Prisma.ChurchScalarRelationFilter, Prisma.ChurchWhereInput>
   registrations?: Prisma.EventRegistrationListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }, "id">
 
 export type EventOrderByWithAggregationInput = {
@@ -314,6 +357,10 @@ export type EventOrderByWithAggregationInput = {
   location?: Prisma.SortOrderInput | Prisma.SortOrder
   registrationEnabled?: Prisma.SortOrder
   fee?: Prisma.SortOrderInput | Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  streamUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.EventCountOrderByAggregateInput
   _avg?: Prisma.EventAvgOrderByAggregateInput
@@ -336,6 +383,10 @@ export type EventScalarWhereWithAggregatesInput = {
   location?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
   registrationEnabled?: Prisma.BoolWithAggregatesFilter<"Event"> | boolean
   fee?: Prisma.DecimalNullableWithAggregatesFilter<"Event"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolWithAggregatesFilter<"Event"> | boolean
+  streamUrl?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
+  meetingUrl?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
+  meetingPlatform?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Event"> | Date | string
 }
 
@@ -349,9 +400,14 @@ export type EventCreateInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutEventsInput
   registrations?: Prisma.EventRegistrationCreateNestedManyWithoutEventInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutEventInput
 }
 
 export type EventUncheckedCreateInput = {
@@ -365,8 +421,13 @@ export type EventUncheckedCreateInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   registrations?: Prisma.EventRegistrationUncheckedCreateNestedManyWithoutEventInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutEventInput
 }
 
 export type EventUpdateInput = {
@@ -379,9 +440,14 @@ export type EventUpdateInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutEventsNestedInput
   registrations?: Prisma.EventRegistrationUpdateManyWithoutEventNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutEventNestedInput
 }
 
 export type EventUncheckedUpdateInput = {
@@ -395,8 +461,13 @@ export type EventUncheckedUpdateInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   registrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutEventNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutEventNestedInput
 }
 
 export type EventCreateManyInput = {
@@ -410,6 +481,10 @@ export type EventCreateManyInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -423,6 +498,10 @@ export type EventUpdateManyMutationInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -437,6 +516,10 @@ export type EventUncheckedUpdateManyInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -450,6 +533,11 @@ export type EventOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type EventNullableScalarRelationFilter = {
+  is?: Prisma.EventWhereInput | null
+  isNot?: Prisma.EventWhereInput | null
+}
+
 export type EventCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   churchId?: Prisma.SortOrder
@@ -461,6 +549,10 @@ export type EventCountOrderByAggregateInput = {
   location?: Prisma.SortOrder
   registrationEnabled?: Prisma.SortOrder
   fee?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  streamUrl?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -479,6 +571,10 @@ export type EventMaxOrderByAggregateInput = {
   location?: Prisma.SortOrder
   registrationEnabled?: Prisma.SortOrder
   fee?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  streamUrl?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -493,6 +589,10 @@ export type EventMinOrderByAggregateInput = {
   location?: Prisma.SortOrder
   registrationEnabled?: Prisma.SortOrder
   fee?: Prisma.SortOrder
+  isOnline?: Prisma.SortOrder
+  streamUrl?: Prisma.SortOrder
+  meetingUrl?: Prisma.SortOrder
+  meetingPlatform?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -547,6 +647,22 @@ export type EventUncheckedUpdateManyWithoutChurchNestedInput = {
   deleteMany?: Prisma.EventScalarWhereInput | Prisma.EventScalarWhereInput[]
 }
 
+export type EventCreateNestedOneWithoutOnlineAttendancesInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOnlineAttendancesInput, Prisma.EventUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOnlineAttendancesInput
+  connect?: Prisma.EventWhereUniqueInput
+}
+
+export type EventUpdateOneWithoutOnlineAttendancesNestedInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOnlineAttendancesInput, Prisma.EventUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOnlineAttendancesInput
+  upsert?: Prisma.EventUpsertWithoutOnlineAttendancesInput
+  disconnect?: Prisma.EventWhereInput | boolean
+  delete?: Prisma.EventWhereInput | boolean
+  connect?: Prisma.EventWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EventUpdateToOneWithWhereWithoutOnlineAttendancesInput, Prisma.EventUpdateWithoutOnlineAttendancesInput>, Prisma.EventUncheckedUpdateWithoutOnlineAttendancesInput>
+}
+
 export type EnumEventTypeFieldUpdateOperationsInput = {
   set?: $Enums.EventType
 }
@@ -583,8 +699,13 @@ export type EventCreateWithoutChurchInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   registrations?: Prisma.EventRegistrationCreateNestedManyWithoutEventInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutEventInput
 }
 
 export type EventUncheckedCreateWithoutChurchInput = {
@@ -597,8 +718,13 @@ export type EventUncheckedCreateWithoutChurchInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   registrations?: Prisma.EventRegistrationUncheckedCreateNestedManyWithoutEventInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutEventInput
 }
 
 export type EventCreateOrConnectWithoutChurchInput = {
@@ -641,7 +767,103 @@ export type EventScalarWhereInput = {
   location?: Prisma.StringNullableFilter<"Event"> | string | null
   registrationEnabled?: Prisma.BoolFilter<"Event"> | boolean
   fee?: Prisma.DecimalNullableFilter<"Event"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFilter<"Event"> | boolean
+  streamUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingUrl?: Prisma.StringNullableFilter<"Event"> | string | null
+  meetingPlatform?: Prisma.StringNullableFilter<"Event"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Event"> | Date | string
+}
+
+export type EventCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  name: string
+  type?: $Enums.EventType
+  description?: string | null
+  startDate: Date | string
+  endDate?: Date | string | null
+  location?: string | null
+  registrationEnabled?: boolean
+  fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
+  createdAt?: Date | string
+  church: Prisma.ChurchCreateNestedOneWithoutEventsInput
+  registrations?: Prisma.EventRegistrationCreateNestedManyWithoutEventInput
+}
+
+export type EventUncheckedCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  churchId: string
+  name: string
+  type?: $Enums.EventType
+  description?: string | null
+  startDate: Date | string
+  endDate?: Date | string | null
+  location?: string | null
+  registrationEnabled?: boolean
+  fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
+  createdAt?: Date | string
+  registrations?: Prisma.EventRegistrationUncheckedCreateNestedManyWithoutEventInput
+}
+
+export type EventCreateOrConnectWithoutOnlineAttendancesInput = {
+  where: Prisma.EventWhereUniqueInput
+  create: Prisma.XOR<Prisma.EventCreateWithoutOnlineAttendancesInput, Prisma.EventUncheckedCreateWithoutOnlineAttendancesInput>
+}
+
+export type EventUpsertWithoutOnlineAttendancesInput = {
+  update: Prisma.XOR<Prisma.EventUpdateWithoutOnlineAttendancesInput, Prisma.EventUncheckedUpdateWithoutOnlineAttendancesInput>
+  create: Prisma.XOR<Prisma.EventCreateWithoutOnlineAttendancesInput, Prisma.EventUncheckedCreateWithoutOnlineAttendancesInput>
+  where?: Prisma.EventWhereInput
+}
+
+export type EventUpdateToOneWithWhereWithoutOnlineAttendancesInput = {
+  where?: Prisma.EventWhereInput
+  data: Prisma.XOR<Prisma.EventUpdateWithoutOnlineAttendancesInput, Prisma.EventUncheckedUpdateWithoutOnlineAttendancesInput>
+}
+
+export type EventUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  church?: Prisma.ChurchUpdateOneRequiredWithoutEventsNestedInput
+  registrations?: Prisma.EventRegistrationUpdateManyWithoutEventNestedInput
+}
+
+export type EventUncheckedUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  churchId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutEventNestedInput
 }
 
 export type EventCreateWithoutRegistrationsInput = {
@@ -654,8 +876,13 @@ export type EventCreateWithoutRegistrationsInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
   church: Prisma.ChurchCreateNestedOneWithoutEventsInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutEventInput
 }
 
 export type EventUncheckedCreateWithoutRegistrationsInput = {
@@ -669,7 +896,12 @@ export type EventUncheckedCreateWithoutRegistrationsInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutEventInput
 }
 
 export type EventCreateOrConnectWithoutRegistrationsInput = {
@@ -698,8 +930,13 @@ export type EventUpdateWithoutRegistrationsInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   church?: Prisma.ChurchUpdateOneRequiredWithoutEventsNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutEventNestedInput
 }
 
 export type EventUncheckedUpdateWithoutRegistrationsInput = {
@@ -713,7 +950,12 @@ export type EventUncheckedUpdateWithoutRegistrationsInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutEventNestedInput
 }
 
 export type EventCreateManyChurchInput = {
@@ -726,6 +968,10 @@ export type EventCreateManyChurchInput = {
   location?: string | null
   registrationEnabled?: boolean
   fee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: boolean
+  streamUrl?: string | null
+  meetingUrl?: string | null
+  meetingPlatform?: string | null
   createdAt?: Date | string
 }
 
@@ -739,8 +985,13 @@ export type EventUpdateWithoutChurchInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   registrations?: Prisma.EventRegistrationUpdateManyWithoutEventNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutEventNestedInput
 }
 
 export type EventUncheckedUpdateWithoutChurchInput = {
@@ -753,8 +1004,13 @@ export type EventUncheckedUpdateWithoutChurchInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   registrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutEventNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutEventNestedInput
 }
 
 export type EventUncheckedUpdateManyWithoutChurchInput = {
@@ -767,6 +1023,10 @@ export type EventUncheckedUpdateManyWithoutChurchInput = {
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   fee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isOnline?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  streamUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meetingPlatform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -777,10 +1037,12 @@ export type EventUncheckedUpdateManyWithoutChurchInput = {
 
 export type EventCountOutputType = {
   registrations: number
+  onlineAttendances: number
 }
 
 export type EventCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   registrations?: boolean | EventCountOutputTypeCountRegistrationsArgs
+  onlineAttendances?: boolean | EventCountOutputTypeCountOnlineAttendancesArgs
 }
 
 /**
@@ -800,6 +1062,13 @@ export type EventCountOutputTypeCountRegistrationsArgs<ExtArgs extends runtime.T
   where?: Prisma.EventRegistrationWhereInput
 }
 
+/**
+ * EventCountOutputType without action
+ */
+export type EventCountOutputTypeCountOnlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OnlineAttendanceWhereInput
+}
+
 
 export type EventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -812,9 +1081,14 @@ export type EventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   location?: boolean
   registrationEnabled?: boolean
   fee?: boolean
+  isOnline?: boolean
+  streamUrl?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   registrations?: boolean | Prisma.Event$registrationsArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Event$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.EventCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
 
@@ -829,6 +1103,10 @@ export type EventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   location?: boolean
   registrationEnabled?: boolean
   fee?: boolean
+  isOnline?: boolean
+  streamUrl?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
@@ -844,6 +1122,10 @@ export type EventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   location?: boolean
   registrationEnabled?: boolean
   fee?: boolean
+  isOnline?: boolean
+  streamUrl?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
@@ -859,13 +1141,18 @@ export type EventSelectScalar = {
   location?: boolean
   registrationEnabled?: boolean
   fee?: boolean
+  isOnline?: boolean
+  streamUrl?: boolean
+  meetingUrl?: boolean
+  meetingPlatform?: boolean
   createdAt?: boolean
 }
 
-export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "churchId" | "name" | "type" | "description" | "startDate" | "endDate" | "location" | "registrationEnabled" | "fee" | "createdAt", ExtArgs["result"]["event"]>
+export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "churchId" | "name" | "type" | "description" | "startDate" | "endDate" | "location" | "registrationEnabled" | "fee" | "isOnline" | "streamUrl" | "meetingUrl" | "meetingPlatform" | "createdAt", ExtArgs["result"]["event"]>
 export type EventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   church?: boolean | Prisma.ChurchDefaultArgs<ExtArgs>
   registrations?: boolean | Prisma.Event$registrationsArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Event$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.EventCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type EventIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -880,6 +1167,7 @@ export type $EventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     church: Prisma.$ChurchPayload<ExtArgs>
     registrations: Prisma.$EventRegistrationPayload<ExtArgs>[]
+    onlineAttendances: Prisma.$OnlineAttendancePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -892,6 +1180,10 @@ export type $EventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     location: string | null
     registrationEnabled: boolean
     fee: runtime.Decimal | null
+    isOnline: boolean
+    streamUrl: string | null
+    meetingUrl: string | null
+    meetingPlatform: string | null
     createdAt: Date
   }, ExtArgs["result"]["event"]>
   composites: {}
@@ -1289,6 +1581,7 @@ export interface Prisma__EventClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   church<T extends Prisma.ChurchDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ChurchDefaultArgs<ExtArgs>>): Prisma.Prisma__ChurchClient<runtime.Types.Result.GetResult<Prisma.$ChurchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   registrations<T extends Prisma.Event$registrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Event$registrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  onlineAttendances<T extends Prisma.Event$onlineAttendancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Event$onlineAttendancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OnlineAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1328,6 +1621,10 @@ export interface EventFieldRefs {
   readonly location: Prisma.FieldRef<"Event", 'String'>
   readonly registrationEnabled: Prisma.FieldRef<"Event", 'Boolean'>
   readonly fee: Prisma.FieldRef<"Event", 'Decimal'>
+  readonly isOnline: Prisma.FieldRef<"Event", 'Boolean'>
+  readonly streamUrl: Prisma.FieldRef<"Event", 'String'>
+  readonly meetingUrl: Prisma.FieldRef<"Event", 'String'>
+  readonly meetingPlatform: Prisma.FieldRef<"Event", 'String'>
   readonly createdAt: Prisma.FieldRef<"Event", 'DateTime'>
 }
     
@@ -1751,6 +2048,30 @@ export type Event$registrationsArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.EventRegistrationScalarFieldEnum | Prisma.EventRegistrationScalarFieldEnum[]
+}
+
+/**
+ * Event.onlineAttendances
+ */
+export type Event$onlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OnlineAttendance
+   */
+  select?: Prisma.OnlineAttendanceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OnlineAttendance
+   */
+  omit?: Prisma.OnlineAttendanceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OnlineAttendanceInclude<ExtArgs> | null
+  where?: Prisma.OnlineAttendanceWhereInput
+  orderBy?: Prisma.OnlineAttendanceOrderByWithRelationInput | Prisma.OnlineAttendanceOrderByWithRelationInput[]
+  cursor?: Prisma.OnlineAttendanceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OnlineAttendanceScalarFieldEnum | Prisma.OnlineAttendanceScalarFieldEnum[]
 }
 
 /**

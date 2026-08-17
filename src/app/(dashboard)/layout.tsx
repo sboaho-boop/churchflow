@@ -52,6 +52,9 @@ export default async function DashboardLayout({
   if (can(role, "sermons.view")) {
     items.push({ href: "/sermons", label: "Sermons", icon: "sermons" });
   }
+  if (can(role, "online.view")) {
+    items.push({ href: "/online", label: "Online Services", icon: "online" });
+  }
   if (can(role, "reports.view")) {
     items.push({ href: "/reports", label: "Reports", icon: "reports" });
   }

@@ -11,6 +11,9 @@ const groupSchema = z.object({
   meetingLocation: z.string().optional().nullable(),
   meetingDay: z.string().optional().nullable(),
   meetingTime: z.string().optional().nullable(),
+  isOnline: z.boolean().optional(),
+  meetingUrl: z.string().optional().nullable(),
+  meetingPlatform: z.string().optional().nullable(),
 });
 
 export async function GET() {
@@ -72,6 +75,9 @@ export async function POST(request: Request) {
         meetingLocation: d.meetingLocation || null,
         meetingDay: d.meetingDay || null,
         meetingTime: d.meetingTime || null,
+        isOnline: d.isOnline ?? false,
+        meetingUrl: d.meetingUrl || null,
+        meetingPlatform: d.meetingPlatform || null,
       },
     });
 

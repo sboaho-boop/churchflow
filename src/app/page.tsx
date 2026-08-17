@@ -181,9 +181,9 @@ export default function LandingPage() {
                 { title: "Attendance", desc: "Quick check-in and service tracking across campuses." },
                 { title: "Giving & finance", desc: "Pledges, transactions and category reporting." },
                 { title: "Events & groups", desc: "Services, small groups and registrations." },
+                { title: "Online services", desc: "Live stream embeds, virtual meetings and online attendance." },
                 { title: "Visitors & follow-ups", desc: "Capture visitors and stay on top of every follow-up." },
                 { title: "Prayer & counseling", desc: "Private request intake with clear status workflows." },
-                { title: "Sermons & media", desc: "Organize sermons and their files and resources." },
                 { title: "Reports & audit", desc: "Insights plus a full audit trail of every change." },
               ].map((f) => (
                 <div

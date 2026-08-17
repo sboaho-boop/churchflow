@@ -39,6 +39,8 @@ const PERMISSIONS: Record<Role, string[]> = {
     "settings.manage",
     "users.manage",
     "communication.manage",
+    "online.view",
+    "online.manage",
   ],
   PASTOR: [
     "dashboard.view",
@@ -55,6 +57,8 @@ const PERMISSIONS: Record<Role, string[]> = {
     "visitors.view",
     "reports.view",
     "events.view",
+    "online.view",
+    "online.manage",
   ],
   DEPARTMENT_LEADER: [
     "dashboard.view",
@@ -63,6 +67,7 @@ const PERMISSIONS: Record<Role, string[]> = {
     "attendance.view",
     "groups.view",
     "events.view",
+    "online.view",
   ],
   MEMBER: [
     "dashboard.view",
@@ -70,6 +75,7 @@ const PERMISSIONS: Record<Role, string[]> = {
     "prayer.create",
     "events.view",
     "sermons.view",
+    "online.view",
   ],
 };
 
@@ -120,4 +126,8 @@ export function canManageDepartments(role?: Role | null) {
 
 export function canManageFollowUps(role?: Role | null) {
   return can(role, "followups.manage");
+}
+
+export function canManageOnline(role?: Role | null) {
+  return can(role, "online.manage");
 }

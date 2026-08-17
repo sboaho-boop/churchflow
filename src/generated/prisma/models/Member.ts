@@ -383,6 +383,7 @@ export type MemberWhereInput = {
   certificates?: Prisma.CertificateListRelationFilter
   memberDocuments?: Prisma.MemberDocumentListRelationFilter
   staffMemberships?: Prisma.StaffMemberListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }
 
 export type MemberOrderByWithRelationInput = {
@@ -431,6 +432,7 @@ export type MemberOrderByWithRelationInput = {
   certificates?: Prisma.CertificateOrderByRelationAggregateInput
   memberDocuments?: Prisma.MemberDocumentOrderByRelationAggregateInput
   staffMemberships?: Prisma.StaffMemberOrderByRelationAggregateInput
+  onlineAttendances?: Prisma.OnlineAttendanceOrderByRelationAggregateInput
 }
 
 export type MemberWhereUniqueInput = Prisma.AtLeast<{
@@ -483,6 +485,7 @@ export type MemberWhereUniqueInput = Prisma.AtLeast<{
   certificates?: Prisma.CertificateListRelationFilter
   memberDocuments?: Prisma.MemberDocumentListRelationFilter
   staffMemberships?: Prisma.StaffMemberListRelationFilter
+  onlineAttendances?: Prisma.OnlineAttendanceListRelationFilter
 }, "id" | "churchId_memberId">
 
 export type MemberOrderByWithAggregationInput = {
@@ -597,6 +600,7 @@ export type MemberCreateInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateInput = {
@@ -643,6 +647,7 @@ export type MemberUncheckedCreateInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUpdateInput = {
@@ -689,6 +694,7 @@ export type MemberUpdateInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateInput = {
@@ -735,6 +741,7 @@ export type MemberUncheckedUpdateInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateManyInput = {
@@ -1126,6 +1133,22 @@ export type MemberUpdateOneWithoutAttendancesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MemberUpdateToOneWithWhereWithoutAttendancesInput, Prisma.MemberUpdateWithoutAttendancesInput>, Prisma.MemberUncheckedUpdateWithoutAttendancesInput>
 }
 
+export type MemberCreateNestedOneWithoutOnlineAttendancesInput = {
+  create?: Prisma.XOR<Prisma.MemberCreateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.MemberCreateOrConnectWithoutOnlineAttendancesInput
+  connect?: Prisma.MemberWhereUniqueInput
+}
+
+export type MemberUpdateOneWithoutOnlineAttendancesNestedInput = {
+  create?: Prisma.XOR<Prisma.MemberCreateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedCreateWithoutOnlineAttendancesInput>
+  connectOrCreate?: Prisma.MemberCreateOrConnectWithoutOnlineAttendancesInput
+  upsert?: Prisma.MemberUpsertWithoutOnlineAttendancesInput
+  disconnect?: Prisma.MemberWhereInput | boolean
+  delete?: Prisma.MemberWhereInput | boolean
+  connect?: Prisma.MemberWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MemberUpdateToOneWithWhereWithoutOnlineAttendancesInput, Prisma.MemberUpdateWithoutOnlineAttendancesInput>, Prisma.MemberUncheckedUpdateWithoutOnlineAttendancesInput>
+}
+
 export type MemberCreateNestedOneWithoutTransactionsInput = {
   create?: Prisma.XOR<Prisma.MemberCreateWithoutTransactionsInput, Prisma.MemberUncheckedCreateWithoutTransactionsInput>
   connectOrCreate?: Prisma.MemberCreateOrConnectWithoutTransactionsInput
@@ -1323,6 +1346,7 @@ export type MemberCreateWithoutChurchInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutChurchInput = {
@@ -1368,6 +1392,7 @@ export type MemberUncheckedCreateWithoutChurchInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutChurchInput = {
@@ -1473,6 +1498,7 @@ export type MemberCreateWithoutUserInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutUserInput = {
@@ -1518,6 +1544,7 @@ export type MemberUncheckedCreateWithoutUserInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutUserInput = {
@@ -1579,6 +1606,7 @@ export type MemberUpdateWithoutUserInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutUserInput = {
@@ -1624,6 +1652,7 @@ export type MemberUncheckedUpdateWithoutUserInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutHeadOfFamiliesInput = {
@@ -1669,6 +1698,7 @@ export type MemberCreateWithoutHeadOfFamiliesInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutHeadOfFamiliesInput = {
@@ -1714,6 +1744,7 @@ export type MemberUncheckedCreateWithoutHeadOfFamiliesInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutHeadOfFamiliesInput = {
@@ -1764,6 +1795,7 @@ export type MemberCreateWithoutFamilyInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutFamilyInput = {
@@ -1809,6 +1841,7 @@ export type MemberUncheckedCreateWithoutFamilyInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutFamilyInput = {
@@ -1875,6 +1908,7 @@ export type MemberUpdateWithoutHeadOfFamiliesInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutHeadOfFamiliesInput = {
@@ -1920,6 +1954,7 @@ export type MemberUncheckedUpdateWithoutHeadOfFamiliesInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUpsertWithWhereUniqueWithoutFamilyInput = {
@@ -1981,6 +2016,7 @@ export type MemberCreateWithoutFamilyMembershipsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutFamilyMembershipsInput = {
@@ -2026,6 +2062,7 @@ export type MemberUncheckedCreateWithoutFamilyMembershipsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutFamilyMembershipsInput = {
@@ -2087,6 +2124,7 @@ export type MemberUpdateWithoutFamilyMembershipsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutFamilyMembershipsInput = {
@@ -2132,6 +2170,7 @@ export type MemberUncheckedUpdateWithoutFamilyMembershipsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutDepartmentMembersInput = {
@@ -2177,6 +2216,7 @@ export type MemberCreateWithoutDepartmentMembersInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutDepartmentMembersInput = {
@@ -2222,6 +2262,7 @@ export type MemberUncheckedCreateWithoutDepartmentMembersInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutDepartmentMembersInput = {
@@ -2283,6 +2324,7 @@ export type MemberUpdateWithoutDepartmentMembersInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutDepartmentMembersInput = {
@@ -2328,6 +2370,7 @@ export type MemberUncheckedUpdateWithoutDepartmentMembersInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutAttendancesInput = {
@@ -2373,6 +2416,7 @@ export type MemberCreateWithoutAttendancesInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutAttendancesInput = {
@@ -2418,6 +2462,7 @@ export type MemberUncheckedCreateWithoutAttendancesInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutAttendancesInput = {
@@ -2479,6 +2524,7 @@ export type MemberUpdateWithoutAttendancesInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutAttendancesInput = {
@@ -2515,6 +2561,207 @@ export type MemberUncheckedUpdateWithoutAttendancesInput = {
   headOfFamilies?: Prisma.FamilyUncheckedUpdateManyWithoutHeadNestedInput
   departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutMemberNestedInput
   groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutMemberNestedInput
+  transactions?: Prisma.FinanceTransactionUncheckedUpdateManyWithoutMemberNestedInput
+  eventRegistrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutMemberNestedInput
+  visitor?: Prisma.VisitorUncheckedUpdateOneWithoutMemberNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutMemberNestedInput
+  prayerRequests?: Prisma.PrayerRequestUncheckedUpdateManyWithoutMemberNestedInput
+  counselingAppointments?: Prisma.CounselingAppointmentUncheckedUpdateManyWithoutMemberNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
+  memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
+  staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
+}
+
+export type MemberCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  memberId: string
+  photo?: string | null
+  firstName: string
+  lastName: string
+  otherNames?: string | null
+  gender: $Enums.Gender
+  dob?: Date | string | null
+  occupation?: string | null
+  phone?: string | null
+  email?: string | null
+  address?: string | null
+  emergencyContact?: string | null
+  emergencyPhone?: string | null
+  maritalStatus?: $Enums.MaritalStatus
+  anniversaryDate?: Date | string | null
+  bloodGroup?: $Enums.BloodGroup | null
+  baptismDate?: Date | string | null
+  confirmationDate?: Date | string | null
+  membershipClass?: $Enums.MembershipClass
+  dateJoined?: Date | string | null
+  previousChurch?: string | null
+  status?: $Enums.MemberStatus
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  church: Prisma.ChurchCreateNestedOneWithoutMembersInput
+  family?: Prisma.FamilyCreateNestedOneWithoutPrimaryMembersInput
+  user?: Prisma.UserCreateNestedOneWithoutMemberInput
+  familyMemberships?: Prisma.FamilyMemberCreateNestedManyWithoutMemberInput
+  headOfFamilies?: Prisma.FamilyCreateNestedManyWithoutHeadInput
+  departmentMembers?: Prisma.DepartmentMemberCreateNestedManyWithoutMemberInput
+  groupMembers?: Prisma.GroupMemberCreateNestedManyWithoutMemberInput
+  attendances?: Prisma.AttendanceCreateNestedManyWithoutMemberInput
+  transactions?: Prisma.FinanceTransactionCreateNestedManyWithoutMemberInput
+  eventRegistrations?: Prisma.EventRegistrationCreateNestedManyWithoutMemberInput
+  visitor?: Prisma.VisitorCreateNestedOneWithoutMemberInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutMemberInput
+  prayerRequests?: Prisma.PrayerRequestCreateNestedManyWithoutMemberInput
+  counselingAppointments?: Prisma.CounselingAppointmentCreateNestedManyWithoutMemberInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
+  memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
+  staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+}
+
+export type MemberUncheckedCreateWithoutOnlineAttendancesInput = {
+  id?: string
+  churchId: string
+  memberId: string
+  photo?: string | null
+  firstName: string
+  lastName: string
+  otherNames?: string | null
+  gender: $Enums.Gender
+  dob?: Date | string | null
+  occupation?: string | null
+  phone?: string | null
+  email?: string | null
+  address?: string | null
+  emergencyContact?: string | null
+  emergencyPhone?: string | null
+  maritalStatus?: $Enums.MaritalStatus
+  anniversaryDate?: Date | string | null
+  bloodGroup?: $Enums.BloodGroup | null
+  baptismDate?: Date | string | null
+  confirmationDate?: Date | string | null
+  membershipClass?: $Enums.MembershipClass
+  dateJoined?: Date | string | null
+  previousChurch?: string | null
+  familyId?: string | null
+  status?: $Enums.MemberStatus
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user?: Prisma.UserUncheckedCreateNestedOneWithoutMemberInput
+  familyMemberships?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutMemberInput
+  headOfFamilies?: Prisma.FamilyUncheckedCreateNestedManyWithoutHeadInput
+  departmentMembers?: Prisma.DepartmentMemberUncheckedCreateNestedManyWithoutMemberInput
+  groupMembers?: Prisma.GroupMemberUncheckedCreateNestedManyWithoutMemberInput
+  attendances?: Prisma.AttendanceUncheckedCreateNestedManyWithoutMemberInput
+  transactions?: Prisma.FinanceTransactionUncheckedCreateNestedManyWithoutMemberInput
+  eventRegistrations?: Prisma.EventRegistrationUncheckedCreateNestedManyWithoutMemberInput
+  visitor?: Prisma.VisitorUncheckedCreateNestedOneWithoutMemberInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutMemberInput
+  prayerRequests?: Prisma.PrayerRequestUncheckedCreateNestedManyWithoutMemberInput
+  counselingAppointments?: Prisma.CounselingAppointmentUncheckedCreateNestedManyWithoutMemberInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
+  memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
+  staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+}
+
+export type MemberCreateOrConnectWithoutOnlineAttendancesInput = {
+  where: Prisma.MemberWhereUniqueInput
+  create: Prisma.XOR<Prisma.MemberCreateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedCreateWithoutOnlineAttendancesInput>
+}
+
+export type MemberUpsertWithoutOnlineAttendancesInput = {
+  update: Prisma.XOR<Prisma.MemberUpdateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedUpdateWithoutOnlineAttendancesInput>
+  create: Prisma.XOR<Prisma.MemberCreateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedCreateWithoutOnlineAttendancesInput>
+  where?: Prisma.MemberWhereInput
+}
+
+export type MemberUpdateToOneWithWhereWithoutOnlineAttendancesInput = {
+  where?: Prisma.MemberWhereInput
+  data: Prisma.XOR<Prisma.MemberUpdateWithoutOnlineAttendancesInput, Prisma.MemberUncheckedUpdateWithoutOnlineAttendancesInput>
+}
+
+export type MemberUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  memberId?: Prisma.StringFieldUpdateOperationsInput | string
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  otherNames?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emergencyContact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emergencyPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maritalStatus?: Prisma.EnumMaritalStatusFieldUpdateOperationsInput | $Enums.MaritalStatus
+  anniversaryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  baptismDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  confirmationDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  membershipClass?: Prisma.EnumMembershipClassFieldUpdateOperationsInput | $Enums.MembershipClass
+  dateJoined?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previousChurch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumMemberStatusFieldUpdateOperationsInput | $Enums.MemberStatus
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  church?: Prisma.ChurchUpdateOneRequiredWithoutMembersNestedInput
+  family?: Prisma.FamilyUpdateOneWithoutPrimaryMembersNestedInput
+  user?: Prisma.UserUpdateOneWithoutMemberNestedInput
+  familyMemberships?: Prisma.FamilyMemberUpdateManyWithoutMemberNestedInput
+  headOfFamilies?: Prisma.FamilyUpdateManyWithoutHeadNestedInput
+  departmentMembers?: Prisma.DepartmentMemberUpdateManyWithoutMemberNestedInput
+  groupMembers?: Prisma.GroupMemberUpdateManyWithoutMemberNestedInput
+  attendances?: Prisma.AttendanceUpdateManyWithoutMemberNestedInput
+  transactions?: Prisma.FinanceTransactionUpdateManyWithoutMemberNestedInput
+  eventRegistrations?: Prisma.EventRegistrationUpdateManyWithoutMemberNestedInput
+  visitor?: Prisma.VisitorUpdateOneWithoutMemberNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutMemberNestedInput
+  prayerRequests?: Prisma.PrayerRequestUpdateManyWithoutMemberNestedInput
+  counselingAppointments?: Prisma.CounselingAppointmentUpdateManyWithoutMemberNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
+  memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
+  staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+}
+
+export type MemberUncheckedUpdateWithoutOnlineAttendancesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  churchId?: Prisma.StringFieldUpdateOperationsInput | string
+  memberId?: Prisma.StringFieldUpdateOperationsInput | string
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  otherNames?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emergencyContact?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emergencyPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maritalStatus?: Prisma.EnumMaritalStatusFieldUpdateOperationsInput | $Enums.MaritalStatus
+  anniversaryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  baptismDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  confirmationDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  membershipClass?: Prisma.EnumMembershipClassFieldUpdateOperationsInput | $Enums.MembershipClass
+  dateJoined?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previousChurch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  familyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumMemberStatusFieldUpdateOperationsInput | $Enums.MemberStatus
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUncheckedUpdateOneWithoutMemberNestedInput
+  familyMemberships?: Prisma.FamilyMemberUncheckedUpdateManyWithoutMemberNestedInput
+  headOfFamilies?: Prisma.FamilyUncheckedUpdateManyWithoutHeadNestedInput
+  departmentMembers?: Prisma.DepartmentMemberUncheckedUpdateManyWithoutMemberNestedInput
+  groupMembers?: Prisma.GroupMemberUncheckedUpdateManyWithoutMemberNestedInput
+  attendances?: Prisma.AttendanceUncheckedUpdateManyWithoutMemberNestedInput
   transactions?: Prisma.FinanceTransactionUncheckedUpdateManyWithoutMemberNestedInput
   eventRegistrations?: Prisma.EventRegistrationUncheckedUpdateManyWithoutMemberNestedInput
   visitor?: Prisma.VisitorUncheckedUpdateOneWithoutMemberNestedInput
@@ -2569,6 +2816,7 @@ export type MemberCreateWithoutTransactionsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutTransactionsInput = {
@@ -2614,6 +2862,7 @@ export type MemberUncheckedCreateWithoutTransactionsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutTransactionsInput = {
@@ -2675,6 +2924,7 @@ export type MemberUpdateWithoutTransactionsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutTransactionsInput = {
@@ -2720,6 +2970,7 @@ export type MemberUncheckedUpdateWithoutTransactionsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutEventRegistrationsInput = {
@@ -2765,6 +3016,7 @@ export type MemberCreateWithoutEventRegistrationsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutEventRegistrationsInput = {
@@ -2810,6 +3062,7 @@ export type MemberUncheckedCreateWithoutEventRegistrationsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutEventRegistrationsInput = {
@@ -2871,6 +3124,7 @@ export type MemberUpdateWithoutEventRegistrationsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutEventRegistrationsInput = {
@@ -2916,6 +3170,7 @@ export type MemberUncheckedUpdateWithoutEventRegistrationsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutGroupMembersInput = {
@@ -2961,6 +3216,7 @@ export type MemberCreateWithoutGroupMembersInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutGroupMembersInput = {
@@ -3006,6 +3262,7 @@ export type MemberUncheckedCreateWithoutGroupMembersInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutGroupMembersInput = {
@@ -3067,6 +3324,7 @@ export type MemberUpdateWithoutGroupMembersInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutGroupMembersInput = {
@@ -3112,6 +3370,7 @@ export type MemberUncheckedUpdateWithoutGroupMembersInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutVisitorInput = {
@@ -3157,6 +3416,7 @@ export type MemberCreateWithoutVisitorInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutVisitorInput = {
@@ -3202,6 +3462,7 @@ export type MemberUncheckedCreateWithoutVisitorInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutVisitorInput = {
@@ -3263,6 +3524,7 @@ export type MemberUpdateWithoutVisitorInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutVisitorInput = {
@@ -3308,6 +3570,7 @@ export type MemberUncheckedUpdateWithoutVisitorInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutFollowUpsInput = {
@@ -3353,6 +3616,7 @@ export type MemberCreateWithoutFollowUpsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutFollowUpsInput = {
@@ -3398,6 +3662,7 @@ export type MemberUncheckedCreateWithoutFollowUpsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutFollowUpsInput = {
@@ -3459,6 +3724,7 @@ export type MemberUpdateWithoutFollowUpsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutFollowUpsInput = {
@@ -3504,6 +3770,7 @@ export type MemberUncheckedUpdateWithoutFollowUpsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutPrayerRequestsInput = {
@@ -3549,6 +3816,7 @@ export type MemberCreateWithoutPrayerRequestsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutPrayerRequestsInput = {
@@ -3594,6 +3862,7 @@ export type MemberUncheckedCreateWithoutPrayerRequestsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutPrayerRequestsInput = {
@@ -3655,6 +3924,7 @@ export type MemberUpdateWithoutPrayerRequestsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutPrayerRequestsInput = {
@@ -3700,6 +3970,7 @@ export type MemberUncheckedUpdateWithoutPrayerRequestsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutCounselingAppointmentsInput = {
@@ -3745,6 +4016,7 @@ export type MemberCreateWithoutCounselingAppointmentsInput = {
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutCounselingAppointmentsInput = {
@@ -3790,6 +4062,7 @@ export type MemberUncheckedCreateWithoutCounselingAppointmentsInput = {
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutCounselingAppointmentsInput = {
@@ -3851,6 +4124,7 @@ export type MemberUpdateWithoutCounselingAppointmentsInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutCounselingAppointmentsInput = {
@@ -3896,6 +4170,7 @@ export type MemberUncheckedUpdateWithoutCounselingAppointmentsInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutStaffMembershipsInput = {
@@ -3941,6 +4216,7 @@ export type MemberCreateWithoutStaffMembershipsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentCreateNestedManyWithoutMemberInput
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutStaffMembershipsInput = {
@@ -3986,6 +4262,7 @@ export type MemberUncheckedCreateWithoutStaffMembershipsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedCreateNestedManyWithoutMemberInput
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutStaffMembershipsInput = {
@@ -4047,6 +4324,7 @@ export type MemberUpdateWithoutStaffMembershipsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUpdateManyWithoutMemberNestedInput
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutStaffMembershipsInput = {
@@ -4092,6 +4370,7 @@ export type MemberUncheckedUpdateWithoutStaffMembershipsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedUpdateManyWithoutMemberNestedInput
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutCertificatesInput = {
@@ -4137,6 +4416,7 @@ export type MemberCreateWithoutCertificatesInput = {
   counselingAppointments?: Prisma.CounselingAppointmentCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutCertificatesInput = {
@@ -4182,6 +4462,7 @@ export type MemberUncheckedCreateWithoutCertificatesInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedCreateNestedManyWithoutMemberInput
   memberDocuments?: Prisma.MemberDocumentUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutCertificatesInput = {
@@ -4243,6 +4524,7 @@ export type MemberUpdateWithoutCertificatesInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutCertificatesInput = {
@@ -4288,6 +4570,7 @@ export type MemberUncheckedUpdateWithoutCertificatesInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateWithoutMemberDocumentsInput = {
@@ -4333,6 +4616,7 @@ export type MemberCreateWithoutMemberDocumentsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentCreateNestedManyWithoutMemberInput
   certificates?: Prisma.CertificateCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceCreateNestedManyWithoutMemberInput
 }
 
 export type MemberUncheckedCreateWithoutMemberDocumentsInput = {
@@ -4378,6 +4662,7 @@ export type MemberUncheckedCreateWithoutMemberDocumentsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedCreateNestedManyWithoutMemberInput
   certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutMemberInput
   staffMemberships?: Prisma.StaffMemberUncheckedCreateNestedManyWithoutMemberInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedCreateNestedManyWithoutMemberInput
 }
 
 export type MemberCreateOrConnectWithoutMemberDocumentsInput = {
@@ -4439,6 +4724,7 @@ export type MemberUpdateWithoutMemberDocumentsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUpdateManyWithoutMemberNestedInput
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutMemberDocumentsInput = {
@@ -4484,6 +4770,7 @@ export type MemberUncheckedUpdateWithoutMemberDocumentsInput = {
   counselingAppointments?: Prisma.CounselingAppointmentUncheckedUpdateManyWithoutMemberNestedInput
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberCreateManyChurchInput = {
@@ -4559,6 +4846,7 @@ export type MemberUpdateWithoutChurchInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutChurchInput = {
@@ -4604,6 +4892,7 @@ export type MemberUncheckedUpdateWithoutChurchInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateManyWithoutChurchInput = {
@@ -4709,6 +4998,7 @@ export type MemberUpdateWithoutFamilyInput = {
   certificates?: Prisma.CertificateUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateWithoutFamilyInput = {
@@ -4754,6 +5044,7 @@ export type MemberUncheckedUpdateWithoutFamilyInput = {
   certificates?: Prisma.CertificateUncheckedUpdateManyWithoutMemberNestedInput
   memberDocuments?: Prisma.MemberDocumentUncheckedUpdateManyWithoutMemberNestedInput
   staffMemberships?: Prisma.StaffMemberUncheckedUpdateManyWithoutMemberNestedInput
+  onlineAttendances?: Prisma.OnlineAttendanceUncheckedUpdateManyWithoutMemberNestedInput
 }
 
 export type MemberUncheckedUpdateManyWithoutFamilyInput = {
@@ -4805,6 +5096,7 @@ export type MemberCountOutputType = {
   certificates: number
   memberDocuments: number
   staffMemberships: number
+  onlineAttendances: number
 }
 
 export type MemberCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -4821,6 +5113,7 @@ export type MemberCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   certificates?: boolean | MemberCountOutputTypeCountCertificatesArgs
   memberDocuments?: boolean | MemberCountOutputTypeCountMemberDocumentsArgs
   staffMemberships?: boolean | MemberCountOutputTypeCountStaffMembershipsArgs
+  onlineAttendances?: boolean | MemberCountOutputTypeCountOnlineAttendancesArgs
 }
 
 /**
@@ -4924,6 +5217,13 @@ export type MemberCountOutputTypeCountStaffMembershipsArgs<ExtArgs extends runti
   where?: Prisma.StaffMemberWhereInput
 }
 
+/**
+ * MemberCountOutputType without action
+ */
+export type MemberCountOutputTypeCountOnlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OnlineAttendanceWhereInput
+}
+
 
 export type MemberSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -4971,6 +5271,7 @@ export type MemberSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   certificates?: boolean | Prisma.Member$certificatesArgs<ExtArgs>
   memberDocuments?: boolean | Prisma.Member$memberDocumentsArgs<ExtArgs>
   staffMemberships?: boolean | Prisma.Member$staffMembershipsArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Member$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.MemberCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["member"]>
 
@@ -5090,6 +5391,7 @@ export type MemberInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   certificates?: boolean | Prisma.Member$certificatesArgs<ExtArgs>
   memberDocuments?: boolean | Prisma.Member$memberDocumentsArgs<ExtArgs>
   staffMemberships?: boolean | Prisma.Member$staffMembershipsArgs<ExtArgs>
+  onlineAttendances?: boolean | Prisma.Member$onlineAttendancesArgs<ExtArgs>
   _count?: boolean | Prisma.MemberCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MemberIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -5121,6 +5423,7 @@ export type $MemberPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     certificates: Prisma.$CertificatePayload<ExtArgs>[]
     memberDocuments: Prisma.$MemberDocumentPayload<ExtArgs>[]
     staffMemberships: Prisma.$StaffMemberPayload<ExtArgs>[]
+    onlineAttendances: Prisma.$OnlineAttendancePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -5562,6 +5865,7 @@ export interface Prisma__MemberClient<T, Null = never, ExtArgs extends runtime.T
   certificates<T extends Prisma.Member$certificatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Member$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CertificatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   memberDocuments<T extends Prisma.Member$memberDocumentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Member$memberDocumentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MemberDocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   staffMemberships<T extends Prisma.Member$staffMembershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Member$staffMembershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  onlineAttendances<T extends Prisma.Member$onlineAttendancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Member$onlineAttendancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OnlineAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6386,6 +6690,30 @@ export type Member$staffMembershipsArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.StaffMemberScalarFieldEnum | Prisma.StaffMemberScalarFieldEnum[]
+}
+
+/**
+ * Member.onlineAttendances
+ */
+export type Member$onlineAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OnlineAttendance
+   */
+  select?: Prisma.OnlineAttendanceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OnlineAttendance
+   */
+  omit?: Prisma.OnlineAttendanceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OnlineAttendanceInclude<ExtArgs> | null
+  where?: Prisma.OnlineAttendanceWhereInput
+  orderBy?: Prisma.OnlineAttendanceOrderByWithRelationInput | Prisma.OnlineAttendanceOrderByWithRelationInput[]
+  cursor?: Prisma.OnlineAttendanceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OnlineAttendanceScalarFieldEnum | Prisma.OnlineAttendanceScalarFieldEnum[]
 }
 
 /**

@@ -406,6 +406,7 @@ export const ModelName = {
   DepartmentMember: 'DepartmentMember',
   ServiceType: 'ServiceType',
   Attendance: 'Attendance',
+  OnlineAttendance: 'OnlineAttendance',
   FinanceCategory: 'FinanceCategory',
   FinanceTransaction: 'FinanceTransaction',
   Event: 'Event',
@@ -442,7 +443,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "church" | "user" | "member" | "family" | "familyMember" | "department" | "departmentMember" | "serviceType" | "attendance" | "financeCategory" | "financeTransaction" | "event" | "eventRegistration" | "smallGroup" | "groupMember" | "visitor" | "followUp" | "prayerRequest" | "counselingAppointment" | "sermon" | "communication" | "asset" | "inventoryItem" | "staffMember" | "certificate" | "announcement" | "notification" | "supportTicket" | "auditLog" | "memberDocument"
+    modelProps: "church" | "user" | "member" | "family" | "familyMember" | "department" | "departmentMember" | "serviceType" | "attendance" | "onlineAttendance" | "financeCategory" | "financeTransaction" | "event" | "eventRegistration" | "smallGroup" | "groupMember" | "visitor" | "followUp" | "prayerRequest" | "counselingAppointment" | "sermon" | "communication" | "asset" | "inventoryItem" | "staffMember" | "certificate" | "announcement" | "notification" | "supportTicket" | "auditLog" | "memberDocument"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1109,6 +1110,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.AttendanceCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.AttendanceCountAggregateOutputType> | number
+        }
+      }
+    }
+    OnlineAttendance: {
+      payload: Prisma.$OnlineAttendancePayload<ExtArgs>
+      fields: Prisma.OnlineAttendanceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OnlineAttendanceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OnlineAttendanceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        findFirst: {
+          args: Prisma.OnlineAttendanceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OnlineAttendanceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        findMany: {
+          args: Prisma.OnlineAttendanceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>[]
+        }
+        create: {
+          args: Prisma.OnlineAttendanceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        createMany: {
+          args: Prisma.OnlineAttendanceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OnlineAttendanceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>[]
+        }
+        delete: {
+          args: Prisma.OnlineAttendanceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        update: {
+          args: Prisma.OnlineAttendanceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        deleteMany: {
+          args: Prisma.OnlineAttendanceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OnlineAttendanceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OnlineAttendanceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>[]
+        }
+        upsert: {
+          args: Prisma.OnlineAttendanceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OnlineAttendancePayload>
+        }
+        aggregate: {
+          args: Prisma.OnlineAttendanceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOnlineAttendance>
+        }
+        groupBy: {
+          args: Prisma.OnlineAttendanceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OnlineAttendanceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OnlineAttendanceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OnlineAttendanceCountAggregateOutputType> | number
         }
       }
     }
@@ -2856,6 +2931,21 @@ export const AttendanceScalarFieldEnum = {
 export type AttendanceScalarFieldEnum = (typeof AttendanceScalarFieldEnum)[keyof typeof AttendanceScalarFieldEnum]
 
 
+export const OnlineAttendanceScalarFieldEnum = {
+  id: 'id',
+  churchId: 'churchId',
+  eventId: 'eventId',
+  memberId: 'memberId',
+  guestName: 'guestName',
+  platform: 'platform',
+  joinedAt: 'joinedAt',
+  leftAt: 'leftAt',
+  notes: 'notes'
+} as const
+
+export type OnlineAttendanceScalarFieldEnum = (typeof OnlineAttendanceScalarFieldEnum)[keyof typeof OnlineAttendanceScalarFieldEnum]
+
+
 export const FinanceCategoryScalarFieldEnum = {
   id: 'id',
   churchId: 'churchId',
@@ -2896,6 +2986,10 @@ export const EventScalarFieldEnum = {
   location: 'location',
   registrationEnabled: 'registrationEnabled',
   fee: 'fee',
+  isOnline: 'isOnline',
+  streamUrl: 'streamUrl',
+  meetingUrl: 'meetingUrl',
+  meetingPlatform: 'meetingPlatform',
   createdAt: 'createdAt'
 } as const
 
@@ -2926,6 +3020,9 @@ export const SmallGroupScalarFieldEnum = {
   meetingLocation: 'meetingLocation',
   meetingDay: 'meetingDay',
   meetingTime: 'meetingTime',
+  isOnline: 'isOnline',
+  meetingUrl: 'meetingUrl',
+  meetingPlatform: 'meetingPlatform',
   createdAt: 'createdAt'
 } as const
 
@@ -3826,6 +3923,7 @@ export type GlobalOmitConfig = {
   departmentMember?: Prisma.DepartmentMemberOmit
   serviceType?: Prisma.ServiceTypeOmit
   attendance?: Prisma.AttendanceOmit
+  onlineAttendance?: Prisma.OnlineAttendanceOmit
   financeCategory?: Prisma.FinanceCategoryOmit
   financeTransaction?: Prisma.FinanceTransactionOmit
   event?: Prisma.EventOmit

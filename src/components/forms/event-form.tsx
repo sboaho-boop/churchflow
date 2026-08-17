@@ -12,13 +12,17 @@ const initial = {
   endDate: "",
   location: "",
   fee: "",
+  isOnline: false,
+  streamUrl: "",
+  meetingUrl: "",
+  meetingPlatform: "",
 };
 
 export function EventForm() {
   const [form, setForm] = useState(initial);
   const { submit, loading, error } = useSubmit();
 
-  function update(key: keyof typeof initial, value: string) {
+  function update(key: keyof typeof initial, value: string | boolean) {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
@@ -27,6 +31,9 @@ export function EventForm() {
     const ok = await submit("/api/events", {
       ...form,
       fee: form.fee ? parseFloat(form.fee) : null,
+      streamUrl: form.streamUrl || null,
+      meetingUrl: form.meetingUrl || null,
+      meetingPlatform: form.meetingPlatform || null,
     });
     if (ok) setForm(initial);
   }
@@ -91,6 +98,51 @@ export function EventForm() {
           onChange={(e) => update("location", e.target.value)}
         />
       </Field>
+
+      <div className="border-t border-slate-200 pt-4">
+        <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+          <input
+            type="checkbox"
+            checked={form.isOnline}
+            onChange={(e) => update("isOnline", e.target.checked)}
+            className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+          />
+          This is an online event
+        </label>
+      </div>
+
+      {form.isOnline && (
+        <div className="space-y-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+          <Field label="Live stream URL (YouTube, Vimeo, etc.)">
+            <Input
+              placeholder="https://youtube.com/watch?v=..."
+              value={form.streamUrl}
+              onChange={(e) => update("streamUrl", e.target.value)}
+            />
+          </Field>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Meeting platform">
+              <Select value={form.meetingPlatform} onChange={(e) => update("meetingPlatform", e.target.value)}>
+                <option value="">None</option>
+                <option value="ZOOM">Zoom</option>
+                <option value="GOOGLE_MEET">Google Meet</option>
+                <option value="MICROSOFT_TEAMS">Microsoft Teams</option>
+                <option value="FACEBOOK_LIVE">Facebook Live</option>
+                <option value="YOUTUBE_LIVE">YouTube Live</option>
+                <option value="OTHER">Other</option>
+              </Select>
+            </Field>
+            <Field label="Meeting link">
+              <Input
+                placeholder="https://zoom.us/j/..."
+                value={form.meetingUrl}
+                onChange={(e) => update("meetingUrl", e.target.value)}
+              />
+            </Field>
+          </div>
+        </div>
+      )}
+
       <Field label="Description">
         <Textarea
           rows={3}
